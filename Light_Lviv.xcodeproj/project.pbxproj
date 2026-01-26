@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5AE4F172F27F4D400796ADC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5AE4EFC2F27F4D400796ADC /* Info.plist */; };
+		F5AE4F182F27F4D400796ADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5AE4EFB2F27F4D400796ADC /* Assets.xcassets */; };
+		F5AE4F192F27F4D400796ADC /* ScheduleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F002F27F4D400796ADC /* ScheduleParser.swift */; };
+		F5AE4F1A2F27F4D400796ADC /* Light_LvivApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4EF62F27F4D400796ADC /* Light_LvivApp.swift */; };
+		F5AE4F1B2F27F4D400796ADC /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F0C2F27F4D400796ADC /* TabButton.swift */; };
+		F5AE4F1C2F27F4D400796ADC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4EFE2F27F4D400796ADC /* NotificationManager.swift */; };
+		F5AE4F1D2F27F4D400796ADC /* AddressSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F082F27F4D400796ADC /* AddressSelectionView.swift */; };
+		F5AE4F1E2F27F4D400796ADC /* ScheduleSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F012F27F4D400796ADC /* ScheduleSearchService.swift */; };
+		F5AE4F1F2F27F4D400796ADC /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F062F27F4D400796ADC /* ScheduleViewModel.swift */; };
+		F5AE4F202F27F4D400796ADC /* PowerOffScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4EFF2F27F4D400796ADC /* PowerOffScraper.swift */; };
+		F5AE4F212F27F4D400796ADC /* RenameGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F0F2F27F4D400796ADC /* RenameGroupView.swift */; };
+		F5AE4F222F27F4D400796ADC /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F032F27F4D400796ADC /* AppTheme.swift */; };
+		F5AE4F232F27F4D400796ADC /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F092F27F4D400796ADC /* AddScheduleView.swift */; };
+		F5AE4F242F27F4D400796ADC /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F042F27F4D400796ADC /* Localization.swift */; };
+		F5AE4F252F27F4D400796ADC /* DiffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F0E2F27F4D400796ADC /* DiffView.swift */; };
+		F5AE4F262F27F4D400796ADC /* VisualScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F112F27F4D400796ADC /* VisualScheduleView.swift */; };
+		F5AE4F272F27F4D400796ADC /* ScheduleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F102F27F4D400796ADC /* ScheduleDetailView.swift */; };
+		F5AE4F282F27F4D400796ADC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F132F27F4D400796ADC /* ContentView.swift */; };
+		F5AE4F292F27F4D400796ADC /* GroupCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F0B2F27F4D400796ADC /* GroupCardView.swift */; };
+		F5AE4F2A2F27F4D400796ADC /* ScheduleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4EF92F27F4D400796ADC /* ScheduleGroup.swift */; };
+		F5C9210D2F23942B00C40371 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = F5C9210C2F23942B00C40371 /* SwiftSoup */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F5AE4EF52F27F4B500796ADC /* Light_Lviv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Light_Lviv.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5AE4EF62F27F4D400796ADC /* Light_LvivApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light_LvivApp.swift; sourceTree = "<group>"; };
+		F5AE4EF82F27F4D400796ADC /* Light_Lviv.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Light_Lviv.xcodeproj; sourceTree = "<group>"; };
+		F5AE4EF92F27F4D400796ADC /* ScheduleGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleGroup.swift; sourceTree = "<group>"; };
+		F5AE4EFB2F27F4D400796ADC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5AE4EFC2F27F4D400796ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5AE4EFE2F27F4D400796ADC /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F5AE4EFF2F27F4D400796ADC /* PowerOffScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerOffScraper.swift; sourceTree = "<group>"; };
+		F5AE4F002F27F4D400796ADC /* ScheduleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleParser.swift; sourceTree = "<group>"; };
+		F5AE4F012F27F4D400796ADC /* ScheduleSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSearchService.swift; sourceTree = "<group>"; };
+		F5AE4F032F27F4D400796ADC /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		F5AE4F042F27F4D400796ADC /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		F5AE4F062F27F4D400796ADC /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		F5AE4F082F27F4D400796ADC /* AddressSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectionView.swift; sourceTree = "<group>"; };
+		F5AE4F092F27F4D400796ADC /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
+		F5AE4F0B2F27F4D400796ADC /* GroupCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCardView.swift; sourceTree = "<group>"; };
+		F5AE4F0C2F27F4D400796ADC /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		F5AE4F0E2F27F4D400796ADC /* DiffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffView.swift; sourceTree = "<group>"; };
+		F5AE4F0F2F27F4D400796ADC /* RenameGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameGroupView.swift; sourceTree = "<group>"; };
+		F5AE4F102F27F4D400796ADC /* ScheduleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailView.swift; sourceTree = "<group>"; };
+		F5AE4F112F27F4D400796ADC /* VisualScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualScheduleView.swift; sourceTree = "<group>"; };
+		F5AE4F132F27F4D400796ADC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5ACB8F42F2128BD00CDAD88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5C9210D2F23942B00C40371 /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5ACB8EE2F2128BD00CDAD88 = {
+			isa = PBXGroup;
+			children = (
+				F5AE4EF52F27F4B500796ADC /* Light_Lviv.app */,
+				F5AE4EF72F27F4D400796ADC /* App */,
+				F5AE4EF82F27F4D400796ADC /* Light_Lviv.xcodeproj */,
+				F5AE4EFA2F27F4D400796ADC /* Models */,
+				F5AE4EFD2F27F4D400796ADC /* Resources */,
+				F5AE4F022F27F4D400796ADC /* Services */,
+				F5AE4F052F27F4D400796ADC /* Utilities */,
+				F5AE4F072F27F4D400796ADC /* ViewModels */,
+				F5AE4F142F27F4D400796ADC /* Views */,
+			);
+			sourceTree = "<group>";
+		};
+		F5AE4EF72F27F4D400796ADC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE4EF62F27F4D400796ADC /* Light_LvivApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F5AE4EFA2F27F4D400796ADC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE4EF92F27F4D400796ADC /* ScheduleGroup.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F5AE4EFD2F27F4D400796ADC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE4EFB2F27F4D400796ADC /* Assets.xcassets */,
+				F5AE4EFC2F27F4D400796ADC /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F5AE4F022F27F4D400796ADC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE4EFE2F27F4D400796ADC /* NotificationManager.swift */,
+				F5AE4EFF2F27F4D400796ADC /* PowerOffScraper.swift */,
+				F5AE4F002F27F4D400796ADC /* ScheduleParser.swift */,
+				F5AE4F012F27F4D400796ADC /* ScheduleSearchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F5AE4F052F27F4D400796ADC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE4F032F27F4D400796ADC /* AppTheme.swift */,
+				F5AE4F042F27F4D400796ADC /* Localization.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F5AE4F072F27F4D400796ADC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE4F062F27F4D400796ADC /* ScheduleViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F5AE4F0A2F27F4D400796ADC /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE4F082F27F4D400796ADC /* AddressSelectionView.swift */,
+				F5AE4F092F27F4D400796ADC /* AddScheduleView.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		F5AE4F0D2F27F4D400796ADC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE4F0B2F27F4D400796ADC /* GroupCardView.swift */,
+				F5AE4F0C2F27F4D400796ADC /* TabButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F5AE4F122F27F4D400796ADC /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE4F0E2F27F4D400796ADC /* DiffView.swift */,
+				F5AE4F0F2F27F4D400796ADC /* RenameGroupView.swift */,
+				F5AE4F102F27F4D400796ADC /* ScheduleDetailView.swift */,
+				F5AE4F112F27F4D400796ADC /* VisualScheduleView.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		F5AE4F142F27F4D400796ADC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F5AE4F0A2F27F4D400796ADC /* Add */,
+				F5AE4F0D2F27F4D400796ADC /* Components */,
+				F5AE4F122F27F4D400796ADC /* Schedule */,
+				F5AE4F132F27F4D400796ADC /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F5AE4F152F27F4D400796ADC /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5ACB8F62F2128BD00CDAD88 /* Light_Lviv */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5ACB9042F2128BE00CDAD88 /* Build configuration list for PBXNativeTarget "Light_Lviv" */;
+			buildPhases = (
+				F5ACB8F32F2128BD00CDAD88 /* Sources */,
+				F5ACB8F42F2128BD00CDAD88 /* Frameworks */,
+				F5ACB8F52F2128BD00CDAD88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Light_Lviv;
+			packageProductDependencies = (
+				F5C9210C2F23942B00C40371 /* SwiftSoup */,
+			);
+			productName = Light_Lviv;
+			productReference = F5AE4EF52F27F4B500796ADC /* Light_Lviv.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5ACB8EF2F2128BD00CDAD88 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					F5ACB8F62F2128BD00CDAD88 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+				};
+			};
+			buildConfigurationList = F5ACB8F22F2128BD00CDAD88 /* Build configuration list for PBXProject "Light_Lviv" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F5ACB8EE2F2128BD00CDAD88;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F5C9210B2F23942B00C40371 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F5ACB8EE2F2128BD00CDAD88;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F5AE4F152F27F4D400796ADC /* Products */;
+					ProjectRef = F5AE4EF82F27F4D400796ADC /* Light_Lviv.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				F5ACB8F62F2128BD00CDAD88 /* Light_Lviv */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5ACB8F52F2128BD00CDAD88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5AE4F172F27F4D400796ADC /* Info.plist in Resources */,
+				F5AE4F182F27F4D400796ADC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5ACB8F32F2128BD00CDAD88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5AE4F192F27F4D400796ADC /* ScheduleParser.swift in Sources */,
+				F5AE4F1A2F27F4D400796ADC /* Light_LvivApp.swift in Sources */,
+				F5AE4F1B2F27F4D400796ADC /* TabButton.swift in Sources */,
+				F5AE4F1C2F27F4D400796ADC /* NotificationManager.swift in Sources */,
+				F5AE4F1D2F27F4D400796ADC /* AddressSelectionView.swift in Sources */,
+				F5AE4F1E2F27F4D400796ADC /* ScheduleSearchService.swift in Sources */,
+				F5AE4F1F2F27F4D400796ADC /* ScheduleViewModel.swift in Sources */,
+				F5AE4F202F27F4D400796ADC /* PowerOffScraper.swift in Sources */,
+				F5AE4F212F27F4D400796ADC /* RenameGroupView.swift in Sources */,
+				F5AE4F222F27F4D400796ADC /* AppTheme.swift in Sources */,
+				F5AE4F232F27F4D400796ADC /* AddScheduleView.swift in Sources */,
+				F5AE4F242F27F4D400796ADC /* Localization.swift in Sources */,
+				F5AE4F252F27F4D400796ADC /* DiffView.swift in Sources */,
+				F5AE4F262F27F4D400796ADC /* VisualScheduleView.swift in Sources */,
+				F5AE4F272F27F4D400796ADC /* ScheduleDetailView.swift in Sources */,
+				F5AE4F282F27F4D400796ADC /* ContentView.swift in Sources */,
+				F5AE4F292F27F4D400796ADC /* GroupCardView.swift in Sources */,
+				F5AE4F2A2F27F4D400796ADC /* ScheduleGroup.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F5ACB9052F2128BE00CDAD88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C99Q5SCRVZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Light_Lviv/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "Shoode.Light-Lviv";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F5ACB9062F2128BE00CDAD88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C99Q5SCRVZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Light_Lviv/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "Shoode.Light-Lviv";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F5ACB9072F2128BE00CDAD88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F5ACB9082F2128BE00CDAD88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5ACB8F22F2128BD00CDAD88 /* Build configuration list for PBXProject "Light_Lviv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5ACB9072F2128BE00CDAD88 /* Debug */,
+				F5ACB9082F2128BE00CDAD88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5ACB9042F2128BE00CDAD88 /* Build configuration list for PBXNativeTarget "Light_Lviv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5ACB9052F2128BE00CDAD88 /* Debug */,
+				F5ACB9062F2128BE00CDAD88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F5C9210B2F23942B00C40371 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.11.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F5C9210C2F23942B00C40371 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F5C9210B2F23942B00C40371 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F5ACB8EF2F2128BD00CDAD88 /* Project object */;
+}
