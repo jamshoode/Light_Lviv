@@ -7,55 +7,90 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F5AE4F172F27F4D400796ADC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5AE4EFC2F27F4D400796ADC /* Info.plist */; };
-		F5AE4F182F27F4D400796ADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5AE4EFB2F27F4D400796ADC /* Assets.xcassets */; };
-		F5AE4F192F27F4D400796ADC /* ScheduleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F002F27F4D400796ADC /* ScheduleParser.swift */; };
-		F5AE4F1A2F27F4D400796ADC /* Light_LvivApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4EF62F27F4D400796ADC /* Light_LvivApp.swift */; };
-		F5AE4F1B2F27F4D400796ADC /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F0C2F27F4D400796ADC /* TabButton.swift */; };
-		F5AE4F1C2F27F4D400796ADC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4EFE2F27F4D400796ADC /* NotificationManager.swift */; };
-		F5AE4F1D2F27F4D400796ADC /* AddressSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F082F27F4D400796ADC /* AddressSelectionView.swift */; };
-		F5AE4F1E2F27F4D400796ADC /* ScheduleSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F012F27F4D400796ADC /* ScheduleSearchService.swift */; };
-		F5AE4F1F2F27F4D400796ADC /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F062F27F4D400796ADC /* ScheduleViewModel.swift */; };
-		F5AE4F202F27F4D400796ADC /* PowerOffScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4EFF2F27F4D400796ADC /* PowerOffScraper.swift */; };
-		F5AE4F212F27F4D400796ADC /* RenameGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F0F2F27F4D400796ADC /* RenameGroupView.swift */; };
-		F5AE4F222F27F4D400796ADC /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F032F27F4D400796ADC /* AppTheme.swift */; };
-		F5AE4F232F27F4D400796ADC /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F092F27F4D400796ADC /* AddScheduleView.swift */; };
-		F5AE4F242F27F4D400796ADC /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F042F27F4D400796ADC /* Localization.swift */; };
-		F5AE4F252F27F4D400796ADC /* DiffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F0E2F27F4D400796ADC /* DiffView.swift */; };
-		F5AE4F262F27F4D400796ADC /* VisualScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F112F27F4D400796ADC /* VisualScheduleView.swift */; };
-		F5AE4F272F27F4D400796ADC /* ScheduleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F102F27F4D400796ADC /* ScheduleDetailView.swift */; };
-		F5AE4F282F27F4D400796ADC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F132F27F4D400796ADC /* ContentView.swift */; };
-		F5AE4F292F27F4D400796ADC /* GroupCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4F0B2F27F4D400796ADC /* GroupCardView.swift */; };
-		F5AE4F2A2F27F4D400796ADC /* ScheduleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AE4EF92F27F4D400796ADC /* ScheduleGroup.swift */; };
+		F59AFE062F2CF2C500918C20 /* RenameGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDFE2F2CF2C500918C20 /* RenameGroupView.swift */; };
+		F59AFE072F2CF2C500918C20 /* VisualScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFE002F2CF2C500918C20 /* VisualScheduleView.swift */; };
+		F59AFE082F2CF2C500918C20 /* PowerOffScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDEC2F2CF2C500918C20 /* PowerOffScraper.swift */; };
+		F59AFE092F2CF2C500918C20 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDF92F2CF2C500918C20 /* TabButton.swift */; };
+		F59AFE0B2F2CF2C500918C20 /* ScheduleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDFF2F2CF2C500918C20 /* ScheduleDetailView.swift */; };
+		F59AFE0C2F2CF2C500918C20 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDEB2F2CF2C500918C20 /* NotificationManager.swift */; };
+		F59AFE0D2F2CF2C500918C20 /* ScheduleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDE52F2CF2C500918C20 /* ScheduleGroup.swift */; };
+		F59AFE0E2F2CF2C500918C20 /* AddressSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDF52F2CF2C500918C20 /* AddressSelectionView.swift */; };
+		F59AFE0F2F2CF2C500918C20 /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDF62F2CF2C500918C20 /* AddScheduleView.swift */; };
+		F59AFE102F2CF2C500918C20 /* ScheduleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDED2F2CF2C500918C20 /* ScheduleParser.swift */; };
+		F59AFE112F2CF2C500918C20 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDF32F2CF2C500918C20 /* ScheduleViewModel.swift */; };
+		F59AFE122F2CF2C500918C20 /* NotificationsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDFB2F2CF2C500918C20 /* NotificationsTabView.swift */; };
+		F59AFE132F2CF2C500918C20 /* GroupCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDF82F2CF2C500918C20 /* GroupCardView.swift */; };
+		F59AFE142F2CF2C500918C20 /* ScheduleSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDEE2F2CF2C500918C20 /* ScheduleSearchService.swift */; };
+		F59AFE152F2CF2C500918C20 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDF12F2CF2C500918C20 /* Localization.swift */; };
+		F59AFE172F2CF2C500918C20 /* DiffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDFD2F2CF2C500918C20 /* DiffView.swift */; };
+		F59AFE182F2CF2C500918C20 /* Light_LvivApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDDC2F2CF2C500918C20 /* Light_LvivApp.swift */; };
+		F59AFE192F2CF2C500918C20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFE022F2CF2C500918C20 /* ContentView.swift */; };
+		F59AFE1A2F2CF2C500918C20 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDF02F2CF2C500918C20 /* AppTheme.swift */; };
+		F59AFE1B2F2CF2C500918C20 /* NotificationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDE42F2CF2C500918C20 /* NotificationHistory.swift */; };
+		F59AFE1C2F2CF2C500918C20 /* NotificationHistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDEA2F2CF2C500918C20 /* NotificationHistoryService.swift */; };
+		F59AFE202F2CF2C500918C20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F59AFDE72F2CF2C500918C20 /* Assets.xcassets */; };
 		F5C9210D2F23942B00C40371 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = F5C9210C2F23942B00C40371 /* SwiftSoup */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F59AFE292F2CF2EF00918C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5ACB8EF2F2128BD00CDAD88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5ACB8F62F2128BD00CDAD88;
+			remoteInfo = Light_Lviv;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		F59AFDDC2F2CF2C500918C20 /* Light_LvivApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light_LvivApp.swift; sourceTree = "<group>"; };
+		F59AFDDE2F2CF2C500918C20 /* Light_Lviv.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Light_Lviv.xcodeproj; sourceTree = "<group>"; };
+		F59AFDDF2F2CF2C500918C20 /* ExampleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTest.swift; sourceTree = "<group>"; };
+		F59AFDE02F2CF2C500918C20 /* NotificationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManagerTests.swift; sourceTree = "<group>"; };
+		F59AFDE12F2CF2C500918C20 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F59AFDE22F2CF2C500918C20 /* ScheduleParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleParserTests.swift; sourceTree = "<group>"; };
+		F59AFDE42F2CF2C500918C20 /* NotificationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHistory.swift; sourceTree = "<group>"; };
+		F59AFDE52F2CF2C500918C20 /* ScheduleGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleGroup.swift; sourceTree = "<group>"; };
+		F59AFDE72F2CF2C500918C20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F59AFDE82F2CF2C500918C20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F59AFDEA2F2CF2C500918C20 /* NotificationHistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHistoryService.swift; sourceTree = "<group>"; };
+		F59AFDEB2F2CF2C500918C20 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F59AFDEC2F2CF2C500918C20 /* PowerOffScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerOffScraper.swift; sourceTree = "<group>"; };
+		F59AFDED2F2CF2C500918C20 /* ScheduleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleParser.swift; sourceTree = "<group>"; };
+		F59AFDEE2F2CF2C500918C20 /* ScheduleSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSearchService.swift; sourceTree = "<group>"; };
+		F59AFDF02F2CF2C500918C20 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		F59AFDF12F2CF2C500918C20 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		F59AFDF32F2CF2C500918C20 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		F59AFDF52F2CF2C500918C20 /* AddressSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectionView.swift; sourceTree = "<group>"; };
+		F59AFDF62F2CF2C500918C20 /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
+		F59AFDF82F2CF2C500918C20 /* GroupCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCardView.swift; sourceTree = "<group>"; };
+		F59AFDF92F2CF2C500918C20 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		F59AFDFB2F2CF2C500918C20 /* NotificationsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTabView.swift; sourceTree = "<group>"; };
+		F59AFDFD2F2CF2C500918C20 /* DiffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffView.swift; sourceTree = "<group>"; };
+		F59AFDFE2F2CF2C500918C20 /* RenameGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameGroupView.swift; sourceTree = "<group>"; };
+		F59AFDFF2F2CF2C500918C20 /* ScheduleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailView.swift; sourceTree = "<group>"; };
+		F59AFE002F2CF2C500918C20 /* VisualScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualScheduleView.swift; sourceTree = "<group>"; };
+		F59AFE022F2CF2C500918C20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F59AFE252F2CF2EF00918C20 /* Light_LvivTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Light_LvivTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5AE4EF52F27F4B500796ADC /* Light_Lviv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Light_Lviv.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5AE4EF62F27F4D400796ADC /* Light_LvivApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light_LvivApp.swift; sourceTree = "<group>"; };
-		F5AE4EF82F27F4D400796ADC /* Light_Lviv.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Light_Lviv.xcodeproj; sourceTree = "<group>"; };
-		F5AE4EF92F27F4D400796ADC /* ScheduleGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleGroup.swift; sourceTree = "<group>"; };
-		F5AE4EFB2F27F4D400796ADC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F5AE4EFC2F27F4D400796ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F5AE4EFE2F27F4D400796ADC /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		F5AE4EFF2F27F4D400796ADC /* PowerOffScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerOffScraper.swift; sourceTree = "<group>"; };
-		F5AE4F002F27F4D400796ADC /* ScheduleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleParser.swift; sourceTree = "<group>"; };
-		F5AE4F012F27F4D400796ADC /* ScheduleSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSearchService.swift; sourceTree = "<group>"; };
-		F5AE4F032F27F4D400796ADC /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		F5AE4F042F27F4D400796ADC /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
-		F5AE4F062F27F4D400796ADC /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
-		F5AE4F082F27F4D400796ADC /* AddressSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectionView.swift; sourceTree = "<group>"; };
-		F5AE4F092F27F4D400796ADC /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
-		F5AE4F0B2F27F4D400796ADC /* GroupCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCardView.swift; sourceTree = "<group>"; };
-		F5AE4F0C2F27F4D400796ADC /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
-		F5AE4F0E2F27F4D400796ADC /* DiffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffView.swift; sourceTree = "<group>"; };
-		F5AE4F0F2F27F4D400796ADC /* RenameGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameGroupView.swift; sourceTree = "<group>"; };
-		F5AE4F102F27F4D400796ADC /* ScheduleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailView.swift; sourceTree = "<group>"; };
-		F5AE4F112F27F4D400796ADC /* VisualScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualScheduleView.swift; sourceTree = "<group>"; };
-		F5AE4F132F27F4D400796ADC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F59AFE262F2CF2EF00918C20 /* Light_LvivTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Light_LvivTests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		F59AFE222F2CF2EF00918C20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5ACB8F42F2128BD00CDAD88 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,122 +102,158 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F5ACB8EE2F2128BD00CDAD88 = {
+		F59AFDDD2F2CF2C500918C20 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				F5AE4EF52F27F4B500796ADC /* Light_Lviv.app */,
-				F5AE4EF72F27F4D400796ADC /* App */,
-				F5AE4EF82F27F4D400796ADC /* Light_Lviv.xcodeproj */,
-				F5AE4EFA2F27F4D400796ADC /* Models */,
-				F5AE4EFD2F27F4D400796ADC /* Resources */,
-				F5AE4F022F27F4D400796ADC /* Services */,
-				F5AE4F052F27F4D400796ADC /* Utilities */,
-				F5AE4F072F27F4D400796ADC /* ViewModels */,
-				F5AE4F142F27F4D400796ADC /* Views */,
-			);
-			sourceTree = "<group>";
-		};
-		F5AE4EF72F27F4D400796ADC /* App */ = {
-			isa = PBXGroup;
-			children = (
-				F5AE4EF62F27F4D400796ADC /* Light_LvivApp.swift */,
+				F59AFDDC2F2CF2C500918C20 /* Light_LvivApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		F5AE4EFA2F27F4D400796ADC /* Models */ = {
+		F59AFDE62F2CF2C500918C20 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F5AE4EF92F27F4D400796ADC /* ScheduleGroup.swift */,
+				F59AFDE42F2CF2C500918C20 /* NotificationHistory.swift */,
+				F59AFDE52F2CF2C500918C20 /* ScheduleGroup.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		F5AE4EFD2F27F4D400796ADC /* Resources */ = {
+		F59AFDE92F2CF2C500918C20 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F5AE4EFB2F27F4D400796ADC /* Assets.xcassets */,
-				F5AE4EFC2F27F4D400796ADC /* Info.plist */,
+				F59AFDE72F2CF2C500918C20 /* Assets.xcassets */,
+				F59AFDE82F2CF2C500918C20 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		F5AE4F022F27F4D400796ADC /* Services */ = {
+		F59AFDEF2F2CF2C500918C20 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F5AE4EFE2F27F4D400796ADC /* NotificationManager.swift */,
-				F5AE4EFF2F27F4D400796ADC /* PowerOffScraper.swift */,
-				F5AE4F002F27F4D400796ADC /* ScheduleParser.swift */,
-				F5AE4F012F27F4D400796ADC /* ScheduleSearchService.swift */,
+				F59AFDEA2F2CF2C500918C20 /* NotificationHistoryService.swift */,
+				F59AFDEB2F2CF2C500918C20 /* NotificationManager.swift */,
+				F59AFDEC2F2CF2C500918C20 /* PowerOffScraper.swift */,
+				F59AFDED2F2CF2C500918C20 /* ScheduleParser.swift */,
+				F59AFDEE2F2CF2C500918C20 /* ScheduleSearchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		F5AE4F052F27F4D400796ADC /* Utilities */ = {
+		F59AFDF22F2CF2C500918C20 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F5AE4F032F27F4D400796ADC /* AppTheme.swift */,
-				F5AE4F042F27F4D400796ADC /* Localization.swift */,
+				F59AFDF02F2CF2C500918C20 /* AppTheme.swift */,
+				F59AFDF12F2CF2C500918C20 /* Localization.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		F5AE4F072F27F4D400796ADC /* ViewModels */ = {
+		F59AFDF42F2CF2C500918C20 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F5AE4F062F27F4D400796ADC /* ScheduleViewModel.swift */,
+				F59AFDF32F2CF2C500918C20 /* ScheduleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		F5AE4F0A2F27F4D400796ADC /* Add */ = {
+		F59AFDF72F2CF2C500918C20 /* Add */ = {
 			isa = PBXGroup;
 			children = (
-				F5AE4F082F27F4D400796ADC /* AddressSelectionView.swift */,
-				F5AE4F092F27F4D400796ADC /* AddScheduleView.swift */,
+				F59AFDF52F2CF2C500918C20 /* AddressSelectionView.swift */,
+				F59AFDF62F2CF2C500918C20 /* AddScheduleView.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
 		};
-		F5AE4F0D2F27F4D400796ADC /* Components */ = {
+		F59AFDFA2F2CF2C500918C20 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F5AE4F0B2F27F4D400796ADC /* GroupCardView.swift */,
-				F5AE4F0C2F27F4D400796ADC /* TabButton.swift */,
+				F59AFDF82F2CF2C500918C20 /* GroupCardView.swift */,
+				F59AFDF92F2CF2C500918C20 /* TabButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		F5AE4F122F27F4D400796ADC /* Schedule */ = {
+		F59AFDFC2F2CF2C500918C20 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				F5AE4F0E2F27F4D400796ADC /* DiffView.swift */,
-				F5AE4F0F2F27F4D400796ADC /* RenameGroupView.swift */,
-				F5AE4F102F27F4D400796ADC /* ScheduleDetailView.swift */,
-				F5AE4F112F27F4D400796ADC /* VisualScheduleView.swift */,
+				F59AFDFB2F2CF2C500918C20 /* NotificationsTabView.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		F59AFE012F2CF2C500918C20 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				F59AFDFD2F2CF2C500918C20 /* DiffView.swift */,
+				F59AFDFE2F2CF2C500918C20 /* RenameGroupView.swift */,
+				F59AFDFF2F2CF2C500918C20 /* ScheduleDetailView.swift */,
+				F59AFE002F2CF2C500918C20 /* VisualScheduleView.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
 		};
-		F5AE4F142F27F4D400796ADC /* Views */ = {
+		F59AFE032F2CF2C500918C20 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F5AE4F0A2F27F4D400796ADC /* Add */,
-				F5AE4F0D2F27F4D400796ADC /* Components */,
-				F5AE4F122F27F4D400796ADC /* Schedule */,
-				F5AE4F132F27F4D400796ADC /* ContentView.swift */,
+				F59AFDF72F2CF2C500918C20 /* Add */,
+				F59AFDFA2F2CF2C500918C20 /* Components */,
+				F59AFDFC2F2CF2C500918C20 /* Notifications */,
+				F59AFE012F2CF2C500918C20 /* Schedule */,
+				F59AFE022F2CF2C500918C20 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F5AE4F152F27F4D400796ADC /* Products */ = {
+		F59AFE042F2CF2C500918C20 /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F5ACB8EE2F2128BD00CDAD88 = {
+			isa = PBXGroup;
+			children = (
+				F5AE4EF52F27F4B500796ADC /* Light_Lviv.app */,
+				F59AFDDD2F2CF2C500918C20 /* App */,
+				F59AFDDE2F2CF2C500918C20 /* Light_Lviv.xcodeproj */,
+				F59AFDE62F2CF2C500918C20 /* Models */,
+				F59AFDE92F2CF2C500918C20 /* Resources */,
+				F59AFDEF2F2CF2C500918C20 /* Services */,
+				F59AFDF22F2CF2C500918C20 /* Utilities */,
+				F59AFDF42F2CF2C500918C20 /* ViewModels */,
+				F59AFE032F2CF2C500918C20 /* Views */,
+				F59AFE252F2CF2EF00918C20 /* Light_LvivTests.xctest */,
+				F59AFE262F2CF2EF00918C20 /* Light_LvivTests */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F59AFE242F2CF2EF00918C20 /* Light_LvivTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F59AFE2B2F2CF2EF00918C20 /* Build configuration list for PBXNativeTarget "Light_LvivTests" */;
+			buildPhases = (
+				F59AFE212F2CF2EF00918C20 /* Sources */,
+				F59AFE222F2CF2EF00918C20 /* Frameworks */,
+				F59AFE232F2CF2EF00918C20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F59AFE2A2F2CF2EF00918C20 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F59AFE262F2CF2EF00918C20 /* Light_LvivTests */,
+			);
+			name = Light_LvivTests;
+			packageProductDependencies = (
+			);
+			productName = Light_LvivTests;
+			productReference = F59AFE252F2CF2EF00918C20 /* Light_LvivTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F5ACB8F62F2128BD00CDAD88 /* Light_Lviv */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5ACB9042F2128BE00CDAD88 /* Build configuration list for PBXNativeTarget "Light_Lviv" */;
@@ -213,6 +284,10 @@
 				LastSwiftUpdateCheck = 2610;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
+					F59AFE242F2CF2EF00918C20 = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = F5ACB8F62F2128BD00CDAD88;
+					};
 					F5ACB8F62F2128BD00CDAD88 = {
 						CreatedOnToolsVersion = 26.1;
 					};
@@ -235,58 +310,126 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = F5AE4F152F27F4D400796ADC /* Products */;
-					ProjectRef = F5AE4EF82F27F4D400796ADC /* Light_Lviv.xcodeproj */;
+					ProductGroup = F59AFE042F2CF2C500918C20 /* Products */;
+					ProjectRef = F59AFDDE2F2CF2C500918C20 /* Light_Lviv.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
 				F5ACB8F62F2128BD00CDAD88 /* Light_Lviv */,
+				F59AFE242F2CF2EF00918C20 /* Light_LvivTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F59AFE232F2CF2EF00918C20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5ACB8F52F2128BD00CDAD88 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5AE4F172F27F4D400796ADC /* Info.plist in Resources */,
-				F5AE4F182F27F4D400796ADC /* Assets.xcassets in Resources */,
+				F59AFE202F2CF2C500918C20 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F59AFE212F2CF2EF00918C20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5ACB8F32F2128BD00CDAD88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5AE4F192F27F4D400796ADC /* ScheduleParser.swift in Sources */,
-				F5AE4F1A2F27F4D400796ADC /* Light_LvivApp.swift in Sources */,
-				F5AE4F1B2F27F4D400796ADC /* TabButton.swift in Sources */,
-				F5AE4F1C2F27F4D400796ADC /* NotificationManager.swift in Sources */,
-				F5AE4F1D2F27F4D400796ADC /* AddressSelectionView.swift in Sources */,
-				F5AE4F1E2F27F4D400796ADC /* ScheduleSearchService.swift in Sources */,
-				F5AE4F1F2F27F4D400796ADC /* ScheduleViewModel.swift in Sources */,
-				F5AE4F202F27F4D400796ADC /* PowerOffScraper.swift in Sources */,
-				F5AE4F212F27F4D400796ADC /* RenameGroupView.swift in Sources */,
-				F5AE4F222F27F4D400796ADC /* AppTheme.swift in Sources */,
-				F5AE4F232F27F4D400796ADC /* AddScheduleView.swift in Sources */,
-				F5AE4F242F27F4D400796ADC /* Localization.swift in Sources */,
-				F5AE4F252F27F4D400796ADC /* DiffView.swift in Sources */,
-				F5AE4F262F27F4D400796ADC /* VisualScheduleView.swift in Sources */,
-				F5AE4F272F27F4D400796ADC /* ScheduleDetailView.swift in Sources */,
-				F5AE4F282F27F4D400796ADC /* ContentView.swift in Sources */,
-				F5AE4F292F27F4D400796ADC /* GroupCardView.swift in Sources */,
-				F5AE4F2A2F27F4D400796ADC /* ScheduleGroup.swift in Sources */,
+				F59AFE062F2CF2C500918C20 /* RenameGroupView.swift in Sources */,
+				F59AFE072F2CF2C500918C20 /* VisualScheduleView.swift in Sources */,
+				F59AFE082F2CF2C500918C20 /* PowerOffScraper.swift in Sources */,
+				F59AFE092F2CF2C500918C20 /* TabButton.swift in Sources */,
+				F59AFE0A2F2CF2C500918C20 /* ExampleTest.swift in Sources */,
+				F59AFE0B2F2CF2C500918C20 /* ScheduleDetailView.swift in Sources */,
+				F59AFE0C2F2CF2C500918C20 /* NotificationManager.swift in Sources */,
+				F59AFE0D2F2CF2C500918C20 /* ScheduleGroup.swift in Sources */,
+				F59AFE0E2F2CF2C500918C20 /* AddressSelectionView.swift in Sources */,
+				F59AFE0F2F2CF2C500918C20 /* AddScheduleView.swift in Sources */,
+				F59AFE102F2CF2C500918C20 /* ScheduleParser.swift in Sources */,
+				F59AFE112F2CF2C500918C20 /* ScheduleViewModel.swift in Sources */,
+				F59AFE122F2CF2C500918C20 /* NotificationsTabView.swift in Sources */,
+				F59AFE132F2CF2C500918C20 /* GroupCardView.swift in Sources */,
+				F59AFE142F2CF2C500918C20 /* ScheduleSearchService.swift in Sources */,
+				F59AFE152F2CF2C500918C20 /* Localization.swift in Sources */,
+				F59AFE172F2CF2C500918C20 /* DiffView.swift in Sources */,
+				F59AFE182F2CF2C500918C20 /* Light_LvivApp.swift in Sources */,
+				F59AFE192F2CF2C500918C20 /* ContentView.swift in Sources */,
+				F59AFE1A2F2CF2C500918C20 /* AppTheme.swift in Sources */,
+				F59AFE1B2F2CF2C500918C20 /* NotificationHistory.swift in Sources */,
+				F59AFE1C2F2CF2C500918C20 /* NotificationHistoryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F59AFE2A2F2CF2EF00918C20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5ACB8F62F2128BD00CDAD88 /* Light_Lviv */;
+			targetProxy = F59AFE292F2CF2EF00918C20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		F59AFE2C2F2CF2EF00918C20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C99Q5SCRVZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Shoode.Light-LvivTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Light_Lviv.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Light_Lviv";
+			};
+			name = Debug;
+		};
+		F59AFE2D2F2CF2EF00918C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C99Q5SCRVZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Shoode.Light-LvivTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Light_Lviv.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Light_Lviv";
+			};
+			name = Release;
+		};
 		F5ACB9052F2128BE00CDAD88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -298,7 +441,7 @@
 				DEVELOPMENT_TEAM = C99Q5SCRVZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Light_Lviv/Resources/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -337,7 +480,7 @@
 				DEVELOPMENT_TEAM = C99Q5SCRVZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Light_Lviv/Resources/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -352,6 +495,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shoode.Light-Lviv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -487,6 +631,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F59AFE2B2F2CF2EF00918C20 /* Build configuration list for PBXNativeTarget "Light_LvivTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F59AFE2C2F2CF2EF00918C20 /* Debug */,
+				F59AFE2D2F2CF2EF00918C20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F5ACB8F22F2128BD00CDAD88 /* Build configuration list for PBXProject "Light_Lviv" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
