@@ -263,42 +263,26 @@ class NotificationManager {
         // Subtract 15 minutes
         guard let notifyDate = calendar.date(byAdding: .minute, value: -15, to: eventDate) else { return }
         
-        // If notifyDate is in past?
-        if notifyDate < Date() {
-             // Maybe we are just slightly late? If eventDate is still in future?
-             // "Notify when schedule for current day is changed" -> user wants updates.
-             // But valid "Power Off in 15 mins" is meaningless if power off time passed.
-             // If power off is 18:00. Time is 17:50. Notify date 17:45. 17:45 < 17:50.
-             // We should check if we are closer?
-             // User said: "Check if it is written correctly... no notification appeared".
-             // If I run the code at 11:35 for 12:00 turn off. Notify time 11:45. Valid.
-             // If I run the code at 11:50 for 12:00 turn off. Notify time 11:45. Past.
-             // In this case (Late Fetch), we won't notify.
-             // Maybe we should notify immediately if within window?
-             // For now, respect the strict 15 min rule to avoid spamming "Power Off 15 mins ago".
-             return 
-        }
-
-        let triggerComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: notifyDate)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: false)
-        
-        let content = UNMutableNotificationContent()
-        content.title = type.title
-        content.body = String(format: type.bodyTemplate, groupName)
-        content.sound = .default
-        
-        // ID must be unique per day/time
-        // "Group_1.1_powerOff_2026-01-26_18_00"
-        // Ensure month/day are formatted to avoid nil keys if something wrong
-        let id = "Group_\(groupName)_\(type)_\(dayComponents.year!)-\(dayComponents.month!)-\(dayComponents.day!)_\(time.hour!)_\(time.minute!)"
-        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error scheduling notification: \(error)")
-            } else {
-                 // Helpful debug
-                // print("Scheduled \(type) for Group \(groupName) at \(triggerComponents.hour!):\(triggerComponents.minute!)")
+        // Only schedule future notifications (notifyDate must be >= current date)
+        if notifyDate >= Date() {
+            let triggerComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: notifyDate)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: false)
+            
+            let content = UNMutableNotificationContent()
+            content.title = type.title
+            content.body = String(format: type.bodyTemplate, groupName)
+            content.sound = .default
+            
+            let id = "Group_\(groupName)_\(type)_\(dayComponents.year!)-\(dayComponents.month!)-\(dayComponents.day!)_\(time.hour!)_\(time.minute!)"
+            let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error scheduling notification: \(error)")
+                } else {
+                     // Helpful debug
+                    // print("Scheduled \(type) for Group \(groupName) at \(triggerComponents.hour!):\(triggerComponents.minute!)")
+                }
             }
         }
     }
