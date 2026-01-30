@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import Light_Lviv
 
 final class Light_LvivTests: XCTestCase {
 

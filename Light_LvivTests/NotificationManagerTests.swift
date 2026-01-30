@@ -1,4 +1,5 @@
 import XCTest
+@testable import Light_Lviv
 
 final class NotificationManagerTests: XCTestCase {
     

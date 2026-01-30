@@ -1,4 +1,5 @@
 import XCTest
+@testable import Light_Lviv
 
 // Tests for ScheduleParser
 final class ScheduleParserTests: XCTestCase {
