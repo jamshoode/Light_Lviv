@@ -7,7 +7,7 @@ struct AppTheme {
             Color(red: 12/255, green: 13/255, blue: 18/255)  // #0C0D12 (Darker)
         ],
         startPoint: .topLeading,
-        endPoint: .bottomTrailing
+        endPoint: .bottom
     )
     
     static let cardStroke = Color(white: 0.2)

@@ -21,7 +21,7 @@ struct VisualScheduleView: View {
                     Text(range.timeString)
                         .font(.system(.body, design: .monospaced))
                         .foregroundStyle(.white)
-                        .frame(width: 120, alignment: .leading)
+                        .frame(width: 180, alignment: .leading)
                     
                     Spacer()
                     

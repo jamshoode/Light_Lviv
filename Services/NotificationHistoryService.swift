@@ -10,10 +10,18 @@ class NotificationHistoryService {
     
     var notifications: [NotificationItem] = []
     
-    private init() {
+    init() {
         loadNotifications()
     }
     
+    var isEmpty: Bool {
+        return notifications.isEmpty
+    }
+    
+    var displayNotifications: [NotificationItem] {
+        return notifications
+    }
+
     func addNotification(_ item: NotificationItem) {
         notifications.insert(item, at: 0)
         

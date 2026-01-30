@@ -1,10 +1,18 @@
 import SwiftUI
 
 struct NotificationsTabView: View {
-    @State private var notifications: [NotificationItem] = []
+    @State private var notifications = NotificationHistoryService()
     
+    //let testHistory = NotificationItem(
+    //    type: .scheduleChanged,
+    //    groupId: "5.1",
+    //    groupName: "HEY",
+    //    message: "WAT"
+    //)
+
     var body: some View {
         NavigationStack {
+            Spacer()
             ZStack {
                 Color.black
                     .ignoresSafeArea()
@@ -24,10 +32,16 @@ struct NotificationsTabView: View {
                             .foregroundStyle(.gray.opacity(0.7))
                             .multilineTextAlignment(.center)
                             .padding(.horizontal)
+                        //Button(action: {
+                        //    notifications.addNotification(testHistory)
+                        //}) {
+                        //    Image(systemName: "plus")
+                        //        .font(.largeTitle)
+                        //}
                     }
                 } else {
                     List {
-                        ForEach(notifications) { notification in
+                        ForEach(notifications.displayNotifications) { notification in
                             NotificationRowView(notification: notification)
                         }
                     }
@@ -38,8 +52,12 @@ struct NotificationsTabView: View {
             .navigationTitle("Notifications")
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
-            .onAppear {
-                notifications = NotificationHistoryService.shared.getNotifications()
+            .toolbar {
+                Button(action: {
+                    notifications.clearHistory()
+                }) {
+                Image(systemName: "trash")
+            }
             }
         }
         .preferredColorScheme(.dark)
