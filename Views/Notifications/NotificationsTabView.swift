@@ -2,16 +2,11 @@ import SwiftUI
 
 struct NotificationsTabView: View {
     @State private var notifications = NotificationHistoryService()
+    @State var badgeCount: Int = 0
+    let notificationCenter = UNUserNotificationCenter.current()
     
-    //let testHistory = NotificationItem(
-    //    type: .scheduleChanged,
-    //    groupId: "5.1",
-    //    groupName: "HEY",
-    //    message: "WAT"
-    //)
-
     var body: some View {
-        NavigationStack {
+        VStack {
             Spacer()
             ZStack {
                 Color.black
@@ -22,22 +17,9 @@ struct NotificationsTabView: View {
                         Image(systemName: "bell.slash")
                             .font(.system(size: 60))
                             .foregroundStyle(.gray)
-                        
-                        Text("No notifications yet")
+                        Text(Localization.get("noNotifHead"))
                             .font(.headline)
                             .foregroundStyle(.gray)
-                        
-                        Text("Schedule changes and power alerts will appear here")
-                            .font(.subheadline)
-                            .foregroundStyle(.gray.opacity(0.7))
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal)
-                        //Button(action: {
-                        //    notifications.addNotification(testHistory)
-                        //}) {
-                        //    Image(systemName: "plus")
-                        //        .font(.largeTitle)
-                        //}
                     }
                 } else {
                     List {
@@ -49,19 +31,25 @@ struct NotificationsTabView: View {
                     .scrollContentBackground(.hidden)
                 }
             }
-            .navigationTitle("Notifications")
+            .navigationTitle(Localization.get("notifTitle"))
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
-                Button(action: {
-                    notifications.clearHistory()
-                }) {
-                Image(systemName: "trash")
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Spacer()
+                    Button(action: {
+                        notifications.clearHistory()
+                    }) {
+                        Image(systemName: "trash")
+                    }
+                    .glassEffect()
+                }
             }
-            }
+
         }
         .preferredColorScheme(.dark)
     }
+    
 }
 
 struct NotificationRowView: View {

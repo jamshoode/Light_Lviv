@@ -32,7 +32,7 @@ class NotificationHistoryService {
         
         saveNotifications()
     }
-    
+
     func getNotifications() -> [NotificationItem] {
         return notifications
     }

@@ -45,10 +45,10 @@ struct GroupCardView: View {
             .overlay(
                 ZStack {
                      if NotificationManager.shared.hasUnreadChanges(group: group) || NotificationManager.shared.hasUnreadNewDay(group: group) {
-                        Circle()
-                            .fill(Color.red)
-                            .frame(width: 12, height: 12)
-                            .offset(x: 12, y: -12)
+                         Circle()
+                             .fill(Color.red)
+                             .frame(width: 12, height: 12)
+                             .offset(x: 24, y: -30)
                      }
                 }
             )

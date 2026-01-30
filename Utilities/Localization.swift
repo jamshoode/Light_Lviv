@@ -59,6 +59,8 @@ struct Localization {
         case "groupFound": return isUA ? "Ваша група:" : "Your Group:"
         case "addGroup": return isUA ? "Додати групу" : "Add Group"
         case "findByAddress": return isUA ? "Знайти за адресою" : "Find by Address"
+        case "notifTitle": return isUA ? "Сповіщення" : "Notifications"
+        case "noNotifHead": return isUA ? "Поки немає сповіщень" : "No notifications yet"
         default: return key
         }
     }

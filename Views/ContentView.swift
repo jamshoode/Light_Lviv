@@ -8,7 +8,7 @@ struct ContentView: View {
     @State private var showingAddSchedule = false
     
     var body: some View {
-        NavigationStack {
+        VStack {
             ZStack {
                 Color.black
                     .ignoresSafeArea()
@@ -52,47 +52,21 @@ struct ContentView: View {
                         }
                     }
                 } else {
-                    ScrollView {
-                        LazyVStack(spacing: 16) {
-                            ForEach(viewModel.displayedGroups) { group in
-                                NavigationLink(destination: ScheduleDetailView(group: group)) {
-                                    GroupCardView(group: group)
-                                }
-                                .contextMenu {
-                                    Button(role: .destructive) {
-                                        viewModel.removeGroup(group)
-                                    } label: {
-                                        Label(Localization.get("delete"), systemImage: "trash")
-                                    }
-                                }
-                            }
-                            
-                            Button(action: {
-                                showingAddSchedule = true
-                            }) {
-                                VStack {
-                                    Image(systemName: "plus")
-                                        .font(.largeTitle)
-                                        .foregroundStyle(.white.opacity(0.6))
-                                }
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .frame(height: 120)
-                                .background(AppTheme.cardGradient)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .stroke(Color(white: 0.3), style: StrokeStyle(lineWidth: 1, dash: [5]))
-                                )
-                                .cornerRadius(12)
+                    TabView {
+                        Tab("Home", systemImage: "house.fill") {
+                            NavigationStack {
+                                Home
                             }
                         }
-                        .padding()
-                    }
-                    .refreshable {
-                        await viewModel.fetchSchedule()
+                        
+                        Tab("Notifications", systemImage: "bell.fill") {
+                            NavigationStack {
+                                NotificationsTabView()
+                            }
+                        }
                     }
                 }
             }
-            .navigationTitle(Localization.get("appName"))
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("GroupRenamed"))) { _ in
@@ -109,6 +83,50 @@ struct ContentView: View {
             NotificationManager.shared.requestPermission()
             await viewModel.startAutoRefresh()
         }
+    }
+    
+    var Home: some View {
+        VStack {
+            ScrollView {
+                LazyVStack(spacing: 16) {
+                    ForEach(viewModel.displayedGroups) { group in
+                        NavigationLink(destination: ScheduleDetailView(group: group)) {
+                            GroupCardView(group: group)
+                        }
+                        .contextMenu {
+                            Button(role: .destructive) {
+                                viewModel.removeGroup(group)
+                            } label: {
+                                Label(Localization.get("delete"), systemImage: "trash")
+                            }
+                        }
+                    }
+                    
+                    Button(action: {
+                        showingAddSchedule = true
+                    }) {
+                        VStack {
+                            Image(systemName: "plus")
+                                .font(.largeTitle)
+                                .foregroundStyle(.white.opacity(0.6))
+                        }
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 120)
+                        .background(AppTheme.cardGradient)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color(white: 0.3), style: StrokeStyle(lineWidth: 1, dash: [5]))
+                        )
+                        .cornerRadius(12)
+                    }
+                }
+                .padding()
+            }
+            .refreshable {
+                await viewModel.fetchSchedule()
+            }
+        }
+        .navigationTitle(Localization.get("appName"))
     }
 }
 
