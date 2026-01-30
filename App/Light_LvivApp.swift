@@ -4,7 +4,17 @@ import SwiftUI
 struct Light_LvivApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ContentView()
+                    .tabItem {
+                        Label("Home", systemImage: "house.fill")
+                    }
+                
+                NotificationsTabView()
+                    .tabItem {
+                        Label("Notifications", systemImage: "bell.fill")
+                    }
+            }
         }
     }
 }
