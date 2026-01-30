@@ -117,8 +117,6 @@ class NotificationManager {
     
     func checkForChanges(in newGroups: [ScheduleGroup]) {
         for group in newGroups {
-            guard subscribedGroups.contains(group.id) else { continue }
-            
             let oldSchedules = currentSchedules[group.id] ?? [:]
             let newSchedules = group.schedules
             
@@ -136,34 +134,51 @@ class NotificationManager {
                 let todayChanged = (oldSchedules[todayKey] != newSchedules[todayKey])
                 let tomorrowAdded = (oldSchedules[tomorrowKey] == nil && newSchedules[tomorrowKey] != nil)
                 
+                // Track change type for notification
+                let changeType: ChangeNotificationType
+                
                 // Prioritize "Today Changed" as it's more critical and requires Diff UI
                 if todayChanged {
                     previousSchedules[group.id] = oldSchedules
                     unreadChanges.insert(group.id)
-                    // Clear new day flag if it was set, today change overrides it UI wise (or we keep both? let's stick to diff priority)
+                    // Clear new day flag if it was set, today change overrides it UI wise
                     unreadNewDayChanges.remove(group.id)
-                    sendChangeNotification(for: group, type: .modified)
+                    changeType = .modified
                 } else if tomorrowAdded {
                     // Just tomorrow added
                     unreadNewDayChanges.insert(group.id)
-                    sendChangeNotification(for: group, type: .newDay)
+                    changeType = .newDay
                 } else {
                     // Some other change (maybe yesterday removed or distant future)
                     // Treat as diff fallback
                     previousSchedules[group.id] = oldSchedules
                     unreadChanges.insert(group.id)
-                    sendChangeNotification(for: group, type: .modified)
+                    changeType = .modified
                 }
+                
+                // Send push notification ONLY for subscribed groups
+                if subscribedGroups.contains(group.id) {
+                    sendChangeNotification(for: group, type: changeType)
+                    
+                    // Re-schedule alarms for subscribed groups
+                    removeNotifications(for: group)
+                    scheduleNotifications(for: group)
+                }
+                
+                // Add to notification history for ALL groups (subscribed and unsubscribed)
+                let historyItem = NotificationItem(
+                    type: .scheduleChanged,
+                    groupId: group.id,
+                    groupName: group.subGroupName,
+                    message: changeType == .modified ? "Schedule has been modified" : "Tomorrow's schedule is now available"
+                )
+                NotificationHistoryService.shared.addNotification(historyItem)
                 
                 // Update current
                 currentSchedules[group.id] = newSchedules
                 
                 // Save
                 saveSubscriptions()
-                
-                // Re-schedule alarms
-                removeNotifications(for: group)
-                scheduleNotifications(for: group)
             }
         }
     }
