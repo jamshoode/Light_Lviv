@@ -50,9 +50,7 @@ class ScheduleParser {
         }
     }
     
-    /// Infers "Power ON" times (gaps between Power OFF times)
     func calculateGaps(in ranges: [TimeRange]) -> [TimeRange] {
-        // Assume day is 00:00 to 24:00 (which is 00:00 next day)
         var gaps: [TimeRange] = []
         var currentHour = 0
         var currentMinute = 0
@@ -68,23 +66,19 @@ class ScheduleParser {
             let startH = range.start.hour ?? 0
             let startM = range.start.minute ?? 0
             
-            // Check if there is a gap before this range
             if currentHour < startH || (currentHour == startH && currentMinute < startM) {
-                // There is a gap
                 let gapStart = DateComponents(hour: currentHour, minute: currentMinute)
                 let gapEnd = range.start
                 gaps.append(TimeRange(start: gapStart, end: gapEnd, type: .powerOn))
             }
             
-            // Move current pointer to end of this range
             currentHour = range.end.hour ?? 0
             currentMinute = range.end.minute ?? 0
         }
         
-        // Check for remaining gap at end of day (up to 24:00)
         if currentHour < 24 {
              let gapStart = DateComponents(hour: currentHour, minute: currentMinute)
-             let gapEnd = DateComponents(hour: 24, minute: 0) // Treat 24:00 as end of day
+             let gapEnd = DateComponents(hour: 24, minute: 0)
              gaps.append(TimeRange(start: gapStart, end: gapEnd, type: .powerOn))
         }
         
@@ -97,7 +91,6 @@ class ScheduleParser {
         return DateComponents(hour: hour, minute: minute)
     }
     
-    /// Checks the current status based on the schedule text
     func getCurrentStatus(schedule: String) -> ScheduleType {
         let ranges = parse(text: schedule)
         
@@ -109,7 +102,6 @@ class ScheduleParser {
         let currentTotal = currentHour * 60 + currentMinute
         
         for range in ranges {
-            // Check if current time is within this OFF range
             let startH = range.start.hour ?? 0
             let startM = range.start.minute ?? 0
             let startTotal = startH * 60 + startM
@@ -118,7 +110,6 @@ class ScheduleParser {
             let endM = range.end.minute ?? 0
             let endTotal = endH * 60 + endM
             
-            // Handle cross-midnight if needed, but usually schedule is 00-24
             if currentTotal >= startTotal && currentTotal < endTotal {
                 return .powerOff
             }

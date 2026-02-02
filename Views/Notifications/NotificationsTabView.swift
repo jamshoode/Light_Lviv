@@ -1,9 +1,7 @@
 import SwiftUI
 
 struct NotificationsTabView: View {
-    @State private var notifications = NotificationHistoryService()
-    @State var badgeCount: Int = 0
-    let notificationCenter = UNUserNotificationCenter.current()
+    private var notifications = NotificationHistoryService.shared
     
     var body: some View {
         VStack {
@@ -22,21 +20,26 @@ struct NotificationsTabView: View {
                             .foregroundStyle(.gray)
                     }
                 } else {
-                    List {
-                        ForEach(notifications.displayNotifications) { notification in
-                            NotificationRowView(notification: notification)
+                    VStack {
+                        List {
+                            ForEach(notifications.displayNotifications) { notification in
+                                NotificationRowView(notification: notification)
+                            }
                         }
+                        .listStyle(.plain)
+                        .scrollContentBackground(.hidden)
                     }
-                    .listStyle(.plain)
-                    .scrollContentBackground(.hidden)
                 }
             }
-            .navigationTitle(Localization.get("notifTitle"))
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Spacer()
+                ToolbarItemGroup(placement: .principal) {
+                    Text(Localization.get("notifTitle"))
+                        .font(.system(size: 28))
+                        .bold()
+                }
+                ToolbarItemGroup(placement: .topBarTrailing) {
                     Button(action: {
                         notifications.clearHistory()
                     }) {
@@ -52,6 +55,36 @@ struct NotificationsTabView: View {
     
 }
 
+struct TestNotif: View {
+    @State private var permission = false
+    
+    func requestPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                permission = true
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    var body: some View {
+        Button {
+            if !permission {
+                requestPermission()
+            } else {
+                NotificationManager.shared.sendNotificationTest()
+                print("Notification sent")
+            }
+        } label: {
+            VStack {
+                Image(systemName: "plus")
+                Text("Add test notification")
+            }
+        }
+    }
+}
+
 struct NotificationRowView: View {
     let notification: NotificationItem
     
@@ -63,6 +96,8 @@ struct NotificationRowView: View {
             return "bell.fill"
         case .scheduleChanged:
             return "exclamationmark.triangle.fill"
+        case .tomorrowAdded:
+            return "calendar"
         }
     }
     
@@ -74,6 +109,8 @@ struct NotificationRowView: View {
             return .green
         case .scheduleChanged:
             return .yellow
+        case .tomorrowAdded:
+            return .blue
         }
     }
     
@@ -81,7 +118,7 @@ struct NotificationRowView: View {
         HStack(spacing: 16) {
             Image(systemName: iconName)
                 .font(.title2)
-                .foregroundStyle(iconColor)
+                .foregroundStyle(.white)
                 .frame(width: 40, height: 40)
                 .background(iconColor.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 8))

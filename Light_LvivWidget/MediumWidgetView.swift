@@ -1,0 +1,126 @@
+import SwiftUI
+import WidgetKit
+
+struct MediumWidgetView: View {
+    var entry: PowerStatusEntry
+    
+    private var minutesRemaining: Int? {
+        guard let nextEvent = entry.nextEvent else { return nil }
+        let diff = nextEvent.timeIntervalSince(entry.date)
+        return max(0, Int(diff / 60))
+    }
+    
+    private var formattedLastUpdated: String {
+        let diff = Date().timeIntervalSince(entry.lastUpdated)
+        let minutes = Int(diff / 60)
+        if minutes < 1 {
+            return "Updated: just now"
+        } else if minutes < 60 {
+            return "Updated: \(minutes)m ago"
+        } else {
+            let hours = minutes / 60
+            return "Updated: \(hours)h ago"
+        }
+    }
+    
+    var body: some View {
+        HStack(spacing: 16) {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 6) {
+                    Image(systemName: entry.isPowerOn ? "bolt.fill" : "poweroutlet.type.b.fill")
+                        .font(.system(size: 24))
+                        .foregroundStyle(entry.isPowerOn ? Color(red: 0.204, green: 0.78, blue: 0.349) : Color(red: 1, green: 0.231, blue: 0.188))
+                    
+                    Text(entry.isPowerOn ? "ON" : "OFF")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundStyle(entry.isPowerOn ? Color(red: 0.204, green: 0.78, blue: 0.349) : Color(red: 1, green: 0.231, blue: 0.188))
+                }
+                
+                Text(entry.groupName)
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .lineLimit(1)
+                
+                if let minutes = minutesRemaining, minutes > 0 {
+                    Text(entry.isPowerOn ? "OFF in \(minutes)m" : "ON in \(minutes)m")
+                        .font(.subheadline)
+                        .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))
+                }
+                
+                Spacer()
+                
+                Text(formattedLastUpdated)
+                    .font(.caption2)
+                    .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))
+            }
+            .frame(width: 100)
+            
+            Divider()
+                .background(Color(red: 0.2, green: 0.2, blue: 0.2))
+            
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Today")
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))
+                    .padding(.bottom, 2)
+                
+                if entry.todaySchedules.isEmpty {
+                    Text("No outages")
+                        .font(.caption)
+                        .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))
+                        .italic()
+                } else {
+                    ForEach(entry.todaySchedules.prefix(4)) { schedule in
+                        HStack(spacing: 4) {
+                            Circle()
+                                .fill(schedule.isPowerOn ? Color(red: 0.204, green: 0.78, blue: 0.349) : Color(red: 1, green: 0.231, blue: 0.188))
+                                .frame(width: 6, height: 6)
+                            
+                            Text("\(schedule.startTime) - \(schedule.endTime)")
+                                .font(.caption)
+                                .foregroundStyle(.white)
+                                .lineLimit(1)
+                        }
+                    }
+                    
+                    if entry.todaySchedules.count > 4 {
+                        Text("+\(entry.todaySchedules.count - 4) more")
+                            .font(.caption2)
+                            .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))
+                    }
+                }
+                
+                Spacer()
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 10)
+        .containerBackground(for: .widget) {
+            LinearGradient(
+                colors: [Color.black, Color.black.opacity(0.8)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        }
+    }
+}
+
+#Preview(as: .systemMedium) {
+    MediumWidgetView(entry: PowerStatusEntry(
+        date: Date(),
+        isPowerOn: true,
+        nextEvent: Date().addingTimeInterval(720),
+        groupName: "1.1",
+        todaySchedules: [
+            ScheduleEntry(startTime: "00:00", endTime: "04:00", isPowerOn: false),
+            ScheduleEntry(startTime: "04:00", endTime: "12:00", isPowerOn: true),
+            ScheduleEntry(startTime: "12:00", endTime: "16:00", isPowerOn: false),
+            ScheduleEntry(startTime: "16:00", endTime: "24:00", isPowerOn: true)
+        ],
+        tomorrowSchedules: [],
+        lastUpdated: Date()
+    ))
+}

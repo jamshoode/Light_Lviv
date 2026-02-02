@@ -10,6 +10,7 @@ class NotificationHistoryService {
     
     var notifications: [NotificationItem] = []
     
+
     init() {
         loadNotifications()
     }
@@ -25,7 +26,6 @@ class NotificationHistoryService {
     func addNotification(_ item: NotificationItem) {
         notifications.insert(item, at: 0)
         
-        // Ring buffer: keep only maxCount notifications
         if notifications.count > maxCount {
             notifications = Array(notifications.prefix(maxCount))
         }

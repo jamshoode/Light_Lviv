@@ -4,6 +4,7 @@ enum NotificationType: String, Codable {
     case prePowerOff      // 15 min before power goes OFF
     case prePowerOn       // 15 min before power comes ON
     case scheduleChanged  // Schedule changed after rescraping
+    case tomorrowAdded
 }
 
 struct NotificationItem: Codable, Identifiable {

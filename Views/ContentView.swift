@@ -3,7 +3,7 @@ import Combine
 
 struct ContentView: View {
     @State private var viewModel = ScheduleViewModel()
-    
+    @State private var selection = 0
     @Environment(\.scenePhase) var scenePhase
     @State private var showingAddSchedule = false
     
@@ -52,18 +52,30 @@ struct ContentView: View {
                         }
                     }
                 } else {
-                    TabView {
-                        Tab("Home", systemImage: "house.fill") {
-                            NavigationStack {
-                                Home
-                            }
-                        }
+                    TabView(selection: $selection) {
+                        Text("WIP")
+                            .font(.largeTitle)
+                            .bold()
+                            .tabItem {
+                                Image("Support icon")
+                                Text("Support")
+                            }.tag(1)
                         
-                        Tab("Notifications", systemImage: "bell.fill") {
-                            NavigationStack {
-                                NotificationsTabView()
-                            }
+                        NavigationStack {
+                            Home
                         }
+                            .tabItem {
+                                Image(systemName: "house")
+                                Text("Home")
+                            }.tag(0)
+                        
+                        NavigationStack {
+                            NotificationsTabView()
+                        }
+                            .tabItem {
+                                Image(systemName: "bell")
+                                Text("Notifications")
+                            }.tag(2)
                     }
                 }
             }
@@ -106,18 +118,28 @@ struct ContentView: View {
                         showingAddSchedule = true
                     }) {
                         VStack {
-                            Image(systemName: "plus")
-                                .font(.largeTitle)
+                            Spacer()
+                            ZStack {
+                                Circle()
+                                    .fill(Color("Plus background"))
+                                    .frame(width: 50, height: 50)
+                                Image(systemName: "plus")
+                                    .font(.system(size: 18))
+                                    .foregroundStyle(.white.opacity(0.6))
+                            }
+                            Spacer()
+                            Text(Localization.get("addGroup"))
                                 .foregroundStyle(.white.opacity(0.6))
+                            Spacer()
                         }
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 120)
                         .background(AppTheme.cardGradient)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(Color(white: 0.3), style: StrokeStyle(lineWidth: 1, dash: [5]))
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color("Card border"), style: StrokeStyle(lineWidth: 1, dash: [5]))
                         )
-                        .cornerRadius(12)
+                        .cornerRadius(16)
                     }
                 }
                 .padding()
@@ -126,7 +148,29 @@ struct ContentView: View {
                 await viewModel.fetchSchedule()
             }
         }
-        .navigationTitle(Localization.get("appName"))
+        //.navigationTitle(Localization.get("appName"))
+        .toolbar {
+            ToolbarItemGroup(placement: .principal) {
+                VStack {
+                    HStack(spacing: 6) {
+                        Image("App icon")
+                            .foregroundStyle(.yellow)
+                        Text(Localization.get("appName"))
+                            .bold()
+
+                    }
+                    .font(.title)
+                }
+            }
+        }
+    }
+}
+
+struct AppIcon: View {
+    var body: some View {
+        Rectangle()
+            .stroke(Color(red: 1, green: 0.767, blue: 0), lineWidth: 2)
+            .frame(width: 14, height: 20)
     }
 }
 

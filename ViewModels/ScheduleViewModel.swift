@@ -5,8 +5,8 @@ import Observation
 @MainActor
 @Observable
 class ScheduleViewModel {
-    var groups: [ScheduleGroup] = [] // All fetched groups
-    private var savedGroupIDs: Set<String> = [] // IDs of groups user has added
+    var groups: [ScheduleGroup] = []
+    private var savedGroupIDs: Set<String> = []
     
     var isEmptyState: Bool {
         return savedGroupIDs.isEmpty
@@ -69,10 +69,8 @@ class ScheduleViewModel {
     }
     
     func startAutoRefresh() async {
-        // Initial fetch
         await fetchSchedule()
         
-        // Loop forever
         while !Task.isCancelled {
             try? await Task.sleep(nanoseconds: 300 * 1_000_000_000)
             if Task.isCancelled { break }
@@ -81,7 +79,6 @@ class ScheduleViewModel {
     }
     
     func fetchSchedule() async {
-        // Show loading only if we have no data at all yet
         if groups.isEmpty {
             isLoading = true
         }
@@ -93,7 +90,6 @@ class ScheduleViewModel {
             
             await MainActor.run {
                 if !fetchedGroups.isEmpty {
-                    // Inject Nicknames
                     var processedGroups: [ScheduleGroup] = []
                     for var group in fetchedGroups {
                         group.customName = NotificationManager.shared.getNickname(for: group)
@@ -104,12 +100,7 @@ class ScheduleViewModel {
                     self.lastUpdated = Date()
                     self.saveGroups()
                     
-                    // Check if subscribed schedules changed
                     NotificationManager.shared.checkForChanges(in: self.groups)
-                    
-                    // We don't need to save groups explicitly here if we only save IDs.
-                    // But if we want to cache content, that's different.
-                    // For now, saveGroups() was just saveSelection() likely.
                 } else if groups.isEmpty {
                      errorMessage = Localization.get("noData")
                 }
@@ -117,9 +108,7 @@ class ScheduleViewModel {
         } catch {
             print("Error fetching: \(error)")
             
-            // Ignore cancellation errors (code -999)
             if let urlError = error as? URLError, urlError.code == .cancelled {
-                print("Fetch cancelled, ignoring error.")
                 return
             }
             

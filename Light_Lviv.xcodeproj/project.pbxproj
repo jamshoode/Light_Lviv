@@ -14,7 +14,6 @@
 		F59AFE0B2F2CF2C500918C20 /* ScheduleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDFF2F2CF2C500918C20 /* ScheduleDetailView.swift */; };
 		F59AFE0C2F2CF2C500918C20 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDEB2F2CF2C500918C20 /* NotificationManager.swift */; };
 		F59AFE0D2F2CF2C500918C20 /* ScheduleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDE52F2CF2C500918C20 /* ScheduleGroup.swift */; };
-		F59AFE0E2F2CF2C500918C20 /* AddressSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDF52F2CF2C500918C20 /* AddressSelectionView.swift */; };
 		F59AFE0F2F2CF2C500918C20 /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDF62F2CF2C500918C20 /* AddScheduleView.swift */; };
 		F59AFE102F2CF2C500918C20 /* ScheduleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDED2F2CF2C500918C20 /* ScheduleParser.swift */; };
 		F59AFE112F2CF2C500918C20 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AFDF32F2CF2C500918C20 /* ScheduleViewModel.swift */; };
@@ -45,10 +44,6 @@
 /* Begin PBXFileReference section */
 		F59AFDDC2F2CF2C500918C20 /* Light_LvivApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light_LvivApp.swift; sourceTree = "<group>"; };
 		F59AFDDE2F2CF2C500918C20 /* Light_Lviv.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Light_Lviv.xcodeproj; sourceTree = "<group>"; };
-		F59AFDDF2F2CF2C500918C20 /* ExampleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTest.swift; sourceTree = "<group>"; };
-		F59AFDE02F2CF2C500918C20 /* NotificationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManagerTests.swift; sourceTree = "<group>"; };
-		F59AFDE12F2CF2C500918C20 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F59AFDE22F2CF2C500918C20 /* ScheduleParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleParserTests.swift; sourceTree = "<group>"; };
 		F59AFDE42F2CF2C500918C20 /* NotificationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHistory.swift; sourceTree = "<group>"; };
 		F59AFDE52F2CF2C500918C20 /* ScheduleGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleGroup.swift; sourceTree = "<group>"; };
 		F59AFDE72F2CF2C500918C20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,7 +56,6 @@
 		F59AFDF02F2CF2C500918C20 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		F59AFDF12F2CF2C500918C20 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		F59AFDF32F2CF2C500918C20 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
-		F59AFDF52F2CF2C500918C20 /* AddressSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectionView.swift; sourceTree = "<group>"; };
 		F59AFDF62F2CF2C500918C20 /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
 		F59AFDF82F2CF2C500918C20 /* GroupCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCardView.swift; sourceTree = "<group>"; };
 		F59AFDF92F2CF2C500918C20 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
@@ -160,7 +154,6 @@
 		F59AFDF72F2CF2C500918C20 /* Add */ = {
 			isa = PBXGroup;
 			children = (
-				F59AFDF52F2CF2C500918C20 /* AddressSelectionView.swift */,
 				F59AFDF62F2CF2C500918C20 /* AddScheduleView.swift */,
 			);
 			path = Add;
@@ -356,11 +349,9 @@
 				F59AFE072F2CF2C500918C20 /* VisualScheduleView.swift in Sources */,
 				F59AFE082F2CF2C500918C20 /* PowerOffScraper.swift in Sources */,
 				F59AFE092F2CF2C500918C20 /* TabButton.swift in Sources */,
-				F59AFE0A2F2CF2C500918C20 /* ExampleTest.swift in Sources */,
 				F59AFE0B2F2CF2C500918C20 /* ScheduleDetailView.swift in Sources */,
 				F59AFE0C2F2CF2C500918C20 /* NotificationManager.swift in Sources */,
 				F59AFE0D2F2CF2C500918C20 /* ScheduleGroup.swift in Sources */,
-				F59AFE0E2F2CF2C500918C20 /* AddressSelectionView.swift in Sources */,
 				F59AFE0F2F2CF2C500918C20 /* AddScheduleView.swift in Sources */,
 				F59AFE102F2CF2C500918C20 /* ScheduleParser.swift in Sources */,
 				F59AFE112F2CF2C500918C20 /* ScheduleViewModel.swift in Sources */,

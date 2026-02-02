@@ -2,11 +2,9 @@ import Foundation
 
 struct Localization {
     static var language: String {
-        // Check preferred languages first as this is what iOS uses for app language
         if let preferred = Locale.preferredLanguages.first, preferred.hasPrefix("uk") {
             return "uk"
         }
-        // Fallback to current locale
         if Locale.current.identifier.hasPrefix("uk") {
             return "uk"
         }
@@ -29,6 +27,7 @@ struct Localization {
         case "done": return isUA ? "Готово" : "Done"
         case "cancel": return isUA ? "Скасувати" : "Cancel"
         case "selectGroup": return isUA ? "Оберіть групу" : "Select a group"
+        case "addGroup": return isUA ? "Додати групу" : "Add a group"
         case "settings": return isUA ? "Налаштування" : "Settings"
         case "appName": return isUA ? "Світло Львів" : "Light Lviv"
         case "powerOff_title": return isUA ? "Вимкнення" : "Power Off"
@@ -52,15 +51,17 @@ struct Localization {
         case "unknownStatus": return isUA ? "Статус невідомий" : "Status Unknown"
         case "renameGroup": return isUA ? "Перейменувати" : "Rename"
         case "enterName": return isUA ? "Введіть назву" : "Enter Name"
-        case "selectSettlement": return isUA ? "Оберіть населений пункт" : "Select Settlement"
-        case "selectStreet": return isUA ? "Оберіть вулицю" : "Select Street"
-        case "selectHouse": return isUA ? "Оберіть будинок" : "Select House Number"
-        case "searchPlaceholder": return isUA ? "Пошук..." : "Search..."
-        case "groupFound": return isUA ? "Ваша група:" : "Your Group:"
-        case "addGroup": return isUA ? "Додати групу" : "Add Group"
-        case "findByAddress": return isUA ? "Знайти за адресою" : "Find by Address"
         case "notifTitle": return isUA ? "Сповіщення" : "Notifications"
         case "noNotifHead": return isUA ? "Поки немає сповіщень" : "No notifications yet"
+        case "widgetPowerOffIn": return isUA ? "Вимкнення через %@ хв" : "OFF in %@ min"
+        case "widgetPowerOnIn": return isUA ? "Увімкнення через %@ хв" : "ON in %@ min"
+        case "widgetUpdated": return isUA ? "Оновлено: %@" : "Updated: %@"
+        case "widgetNoOutages": return isUA ? "Немає вимкнень" : "No outages"
+        case "widgetNoSchedule": return isUA ? "Розкладу ще немає" : "No schedule yet"
+        case "widgetToday": return isUA ? "СЬОГОДНІ" : "TODAY"
+        case "widgetTomorrow": return isUA ? "ЗАВТРА" : "TOMORROW"
+        case "widgetPowerStatus": return isUA ? "Статус живлення" : "Power Status"
+        case "widgetDescription": return isUA ? "Відстежуйте вимкнення для обраної групи" : "Track power outages for your selected group"
         default: return key
         }
     }

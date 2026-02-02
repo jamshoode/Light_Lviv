@@ -16,14 +16,6 @@ struct AddScheduleView: View {
                         .foregroundStyle(.white)
                 } else {
                     List {
-                        Section {
-                            NavigationLink(destination: AddressSelectionView(vm: vm)) {
-                                Label(Localization.get("findByAddress"), systemImage: "magnifyingglass")
-                                    .foregroundStyle(.white)
-                            }
-                            .listRowBackground(Color(white: 0.1))
-                        }
-                        
                         Section(header: Text(Localization.get("selectGroup"))) {
                             ForEach(vm.groups) { group in
                                 HStack {
