@@ -106,7 +106,11 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         updateSharedDataAndWidgets(for: group)
     }
     
-    private func updateSharedDataAndWidgets(for group: ScheduleGroup) {
+    func updateWidgetDataIfNeeded(for group: ScheduleGroup) {
+        let widgetGroupId = SharedDataManager.shared.getWidgetGroupId(subscribedGroups: Array(subscribedGroups))
+        
+        guard group.id == widgetGroupId else { return }
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         let todayKey = dateFormatter.string(from: Date())
@@ -131,6 +135,10 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         )
         
         SharedDataManager.shared.reloadWidgetTimelines()
+    }
+    
+    private func updateSharedDataAndWidgets(for group: ScheduleGroup) {
+        updateWidgetDataIfNeeded(for: group)
     }
     
     private func parseScheduleToEntries(text: String) -> [ScheduleEntry] {
@@ -324,8 +332,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
             guard let self = self else { return }
             
             let idsToRemove = requests.compactMap { request -> String? in
-                if let groupName = request.content.userInfo["groupName"] as? String {
-                    let groupId = self.groupNicknames.first(where: { $0.value == groupName })?.key ?? groupName
+                if let groupId = request.content.userInfo["groupId"] as? String {
                     if !self.subscribedGroups.contains(groupId) {
                         return request.identifier
                     }
@@ -337,7 +344,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    enum EventType {
+    enum NotificationEventType {
         case powerOff
         case powerOn
         
@@ -356,7 +363,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    private func scheduleEvent(group: ScheduleGroup, time: DateComponents, dayComponents: DateComponents, type: EventType) {
+    private func scheduleEvent(group: ScheduleGroup, time: DateComponents, dayComponents: DateComponents, type: NotificationEventType) {
         let calendar = Calendar.current
         var components = dayComponents
         components.hour = time.hour
@@ -442,9 +449,10 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
             )
             
             NotificationHistoryService.shared.addNotification(item)
+            completionHandler([.banner, .sound])
+        } else {
+            completionHandler([])
         }
-        
-        completionHandler([.banner, .sound])
     }
     
     func userNotificationCenter(
@@ -556,11 +564,11 @@ extension NotificationManager {
     func startLiveActivity(for group: ScheduleGroup, nextEvent: Date, isPowerOn: Bool) {
         guard ActivityAuthorizationInfo().areActivitiesEnabled else { return }
         
-        let eventType: EventType = isPowerOn ? .powerOff : .powerOn
+        let liveActivityEventType: EventType = isPowerOn ? .powerOff : .powerOn
         let attributes = PowerOutageAttributes(
             groupName: groupNicknames[group.id] ?? group.subGroupName,
             targetTime: nextEvent,
-            eventType: eventType
+            eventType: liveActivityEventType
         )
         
         let initialState = PowerOutageAttributes.ContentState(
@@ -569,10 +577,12 @@ extension NotificationManager {
             progress: 0.0
         )
         
+        let activityContent = ActivityContent(state: initialState, staleDate: nil)
+        
         do {
             let activity = try Activity.request(
                 attributes: attributes,
-                contentState: initialState,
+                content: activityContent,
                 pushType: nil
             )
             print("Started Live Activity: \(activity.id)")
@@ -590,7 +600,8 @@ extension NotificationManager {
                     minutesUntilChange: minutesRemaining,
                     progress: progress
                 )
-                await activity.update(using: newState)
+                let content = ActivityContent(state: newState, staleDate: nil)
+                await activity.update(content)
             }
         }
     }
@@ -598,7 +609,7 @@ extension NotificationManager {
     func endLiveActivity() {
         Task {
             for activity in Activity<PowerOutageAttributes>.activities {
-                await activity.end(dismissalPolicy: .immediate)
+                await activity.end(nil, dismissalPolicy: .immediate)
             }
         }
     }
@@ -608,7 +619,7 @@ extension NotificationManager {
             for activity in Activity<PowerOutageAttributes>.activities {
                 let groupName = groupNicknames[groupId] ?? groupId
                 if activity.attributes.groupName == groupName {
-                    await activity.end(dismissalPolicy: .immediate)
+                    await activity.end(nil, dismissalPolicy: .immediate)
                 }
             }
         }

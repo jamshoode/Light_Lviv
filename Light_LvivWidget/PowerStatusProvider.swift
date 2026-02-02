@@ -24,20 +24,29 @@ struct PowerStatusProvider: TimelineProvider {
         let currentDate = Date()
         
         let baseEntry = loadEntryFromSharedData() ?? placeholder(in: context)
+        var isPowerOn = baseEntry.isPowerOn
+        var nextEvent = baseEntry.nextEvent
         
         for offset in 0..<24 {
             let entryDate = Calendar.current.date(byAdding: .minute, value: offset * 15, to: currentDate)!
             
-            var entry = baseEntry
-            entry.date = entryDate
-            
-            if let nextEvent = entry.nextEvent {
-                let minutesUntil = Int(nextEvent.timeIntervalSince(entryDate) / 60)
+            if let currentNextEvent = nextEvent {
+                let minutesUntil = Int(currentNextEvent.timeIntervalSince(entryDate) / 60)
                 if minutesUntil <= 0 {
-                    entry.isPowerOn.toggle()
-                    entry.nextEvent = calculateNextEvent(from: entryDate, isPowerOn: entry.isPowerOn, schedules: entry.todaySchedules)
+                    isPowerOn.toggle()
+                    nextEvent = calculateNextEvent(from: entryDate, isPowerOn: isPowerOn, schedules: baseEntry.todaySchedules)
                 }
             }
+            
+            let entry = PowerStatusEntry(
+                date: entryDate,
+                isPowerOn: isPowerOn,
+                nextEvent: nextEvent,
+                groupName: baseEntry.groupName,
+                todaySchedules: baseEntry.todaySchedules,
+                tomorrowSchedules: baseEntry.tomorrowSchedules,
+                lastUpdated: baseEntry.lastUpdated
+            )
             
             entries.append(entry)
         }

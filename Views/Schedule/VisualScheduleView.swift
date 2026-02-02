@@ -2,6 +2,12 @@ import SwiftUI
 
 struct VisualScheduleView: View {
     let text: String
+    let isCompact: Bool
+    
+    init(text: String, isCompact: Bool = false) {
+        self.text = text
+        self.isCompact = isCompact
+    }
     
     var ranges: [TimeRange] {
         let off = ScheduleParser.shared.parse(text: text)
@@ -17,26 +23,31 @@ struct VisualScheduleView: View {
     var body: some View {
         VStack(spacing: 0) {
             ForEach(ranges) { range in
-                HStack {
+                HStack(spacing: isCompact ? 8 : 16) {
                     Text(range.timeString)
-                        .font(.system(.body, design: .monospaced))
+                        .font(isCompact ? .system(.caption, design: .monospaced) : .system(.body, design: .monospaced))
                         .foregroundStyle(.white)
-                        .frame(width: 180, alignment: .leading)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
                     
                     Spacer()
                     
-                    Text(range.type == .powerOff ? Localization.get("powerOff_title") : Localization.get("powerOn_title"))
-                        .font(.caption)
-                        .fontWeight(.bold)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(range.type == .powerOff ? Color.red.opacity(0.3) : Color.green.opacity(0.3))
-                        .foregroundStyle(range.type == .powerOff ? Color.red : Color.green)
-                        .cornerRadius(4)
+                    if isCompact {
+                        Circle()
+                            .fill(range.type == .powerOff ? Color.red : Color.green)
+                            .frame(width: 8, height: 8)
+                    } else {
+                        Text(range.type == .powerOff ? Localization.get("powerOff_title") : Localization.get("powerOn_title"))
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(range.type == .powerOff ? Color.red.opacity(0.3) : Color.green.opacity(0.3))
+                            .foregroundStyle(range.type == .powerOff ? Color.red : Color.green)
+                            .cornerRadius(4)
+                    }
                 }
-                .padding()
-                .padding()
-                // No item background, let container show through
+                .padding(isCompact ? 8 : 16)
                 .overlay(
                     Rectangle()
                         .frame(height: 0.5)
@@ -46,9 +57,9 @@ struct VisualScheduleView: View {
             }
         }
         .background(AppTheme.cardGradient)
-        .cornerRadius(24)
+        .cornerRadius(isCompact ? 16 : 24)
         .overlay(
-            RoundedRectangle(cornerRadius: 24)
+            RoundedRectangle(cornerRadius: isCompact ? 16 : 24)
                 .stroke(AppTheme.cardStroke, lineWidth: 1)
         )
     }

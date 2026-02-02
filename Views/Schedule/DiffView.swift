@@ -17,16 +17,17 @@ struct DiffView: View {
                             .foregroundStyle(.gray)
                     }
                     
-                    HStack(alignment: .top, spacing: 16) {
+                    HStack(alignment: .top, spacing: 12) {
                         // Previous Column
                         VStack(alignment: .leading, spacing: 8) {
                             Text(Localization.get("previous"))
                                 .font(.headline)
                                 .foregroundStyle(.gray)
                             
-                            VisualScheduleView(text: oldSchedule)
-                                .opacity(0.7) // Dim old one slightly
+                            VisualScheduleView(text: oldSchedule, isCompact: true)
+                                .opacity(0.7)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         
                         Divider()
                             .background(Color(white: 0.3))
@@ -37,8 +38,9 @@ struct DiffView: View {
                                 .font(.headline)
                                 .foregroundStyle(.white)
                             
-                            VisualScheduleView(text: newSchedule)
+                            VisualScheduleView(text: newSchedule, isCompact: true)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
                 .padding()

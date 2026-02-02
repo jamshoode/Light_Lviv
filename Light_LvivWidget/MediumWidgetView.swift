@@ -23,6 +23,31 @@ struct MediumWidgetView: View {
         }
     }
     
+    static let cardGradient: LinearGradient = {
+        let angleDegrees: Double = -83
+        let angleRadians = angleDegrees * .pi / 180
+        
+        let centerX: Double = 0.2
+        let centerY: Double = 0.2
+        let length: Double = 0.8
+        
+        let startX = centerX - length * cos(angleRadians)
+        let startY = centerY + length * sin(angleRadians)
+        let endX = centerX + length * cos(angleRadians)
+        let endY = centerY - length * sin(angleRadians)
+        
+        return LinearGradient(
+            gradient: Gradient(stops: [
+                .init(color: Color("Dark gradient"), location: 0.0),
+                .init(color: Color("Dark gradient"), location: 0.0),
+                .init(color: Color("Dark blue gradient"), location: 1.0),
+                .init(color: Color("Dark blue gradient"), location: 1.0)
+            ]),
+            startPoint: UnitPoint(x: max(0, min(1, startX)), y: max(0, min(1, startY))),
+            endPoint: UnitPoint(x: max(0, min(1, endX)), y: max(0, min(1, endY)))
+        )
+    }()
+
     var body: some View {
         HStack(spacing: 16) {
             VStack(alignment: .leading, spacing: 8) {
@@ -99,28 +124,9 @@ struct MediumWidgetView: View {
         .padding(.horizontal, 12)
         .padding(.vertical, 10)
         .containerBackground(for: .widget) {
-            LinearGradient(
-                colors: [Color.black, Color.black.opacity(0.8)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
+            Self.cardGradient
         }
     }
 }
 
-#Preview(as: .systemMedium) {
-    MediumWidgetView(entry: PowerStatusEntry(
-        date: Date(),
-        isPowerOn: true,
-        nextEvent: Date().addingTimeInterval(720),
-        groupName: "1.1",
-        todaySchedules: [
-            ScheduleEntry(startTime: "00:00", endTime: "04:00", isPowerOn: false),
-            ScheduleEntry(startTime: "04:00", endTime: "12:00", isPowerOn: true),
-            ScheduleEntry(startTime: "12:00", endTime: "16:00", isPowerOn: false),
-            ScheduleEntry(startTime: "16:00", endTime: "24:00", isPowerOn: true)
-        ],
-        tomorrowSchedules: [],
-        lastUpdated: Date()
-    ))
-}
+

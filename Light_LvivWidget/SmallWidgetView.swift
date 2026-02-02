@@ -1,16 +1,6 @@
 import SwiftUI
 import WidgetKit
 
-struct PowerStatusEntry: TimelineEntry {
-    let date: Date
-    let isPowerOn: Bool
-    let nextEvent: Date?
-    let groupName: String
-    let todaySchedules: [ScheduleEntry]
-    let tomorrowSchedules: [ScheduleEntry]
-    let lastUpdated: Date
-}
-
 struct SmallWidgetView: View {
     var entry: PowerStatusEntry
     
@@ -20,6 +10,31 @@ struct SmallWidgetView: View {
         return max(0, Int(diff / 60))
     }
     
+    static let cardGradient: LinearGradient = {
+        let angleDegrees: Double = -83
+        let angleRadians = angleDegrees * .pi / 180
+        
+        let centerX: Double = 0.2
+        let centerY: Double = 0.2
+        let length: Double = 0.8
+        
+        let startX = centerX - length * cos(angleRadians)
+        let startY = centerY + length * sin(angleRadians)
+        let endX = centerX + length * cos(angleRadians)
+        let endY = centerY - length * sin(angleRadians)
+        
+        return LinearGradient(
+            gradient: Gradient(stops: [
+                .init(color: Color("Dark gradient"), location: 0.0),
+                .init(color: Color("Dark gradient"), location: 0.0),
+                .init(color: Color("Dark blue gradient"), location: 1.0),
+                .init(color: Color("Dark blue gradient"), location: 1.0)
+            ]),
+            startPoint: UnitPoint(x: max(0, min(1, startX)), y: max(0, min(1, startY))),
+            endPoint: UnitPoint(x: max(0, min(1, endX)), y: max(0, min(1, endY)))
+        )
+    }()
+    
     var body: some View {
         VStack(spacing: 8) {
             Image(systemName: entry.isPowerOn ? "bolt.fill" : "poweroutlet.type.b.fill")
@@ -27,35 +42,21 @@ struct SmallWidgetView: View {
                 .foregroundStyle(entry.isPowerOn ? Color(red: 0.204, green: 0.78, blue: 0.349) : Color(red: 1, green: 0.231, blue: 0.188))
             
             if let minutes = minutesRemaining, minutes > 0 {
-                Text(entry.isPowerOn ? "OFF in \(minutes)m" : "ON in \(minutes)m")
+                Text(entry.isPowerOn ? "/off_in \(minutes)m/" : "/on_in \(minutes)m/")
                     .font(.caption)
                     .fontWeight(.medium)
                     .foregroundStyle(.white)
             } else {
-                Text(entry.isPowerOn ? "ON" : "OFF")
+                Text(entry.isPowerOn ? "/on/" : "/off/")
                     .font(.caption)
                     .fontWeight(.medium)
                     .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))
             }
         }
         .containerBackground(for: .widget) {
-            LinearGradient(
-                colors: [Color.black, Color.black.opacity(0.8)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
+            Self.cardGradient
         }
     }
 }
 
-#Preview(as: .systemSmall) {
-    SmallWidgetView(entry: PowerStatusEntry(
-        date: Date(),
-        isPowerOn: true,
-        nextEvent: Date().addingTimeInterval(720),
-        groupName: "1.1",
-        todaySchedules: [],
-        tomorrowSchedules: [],
-        lastUpdated: Date()
-    ))
-}
+

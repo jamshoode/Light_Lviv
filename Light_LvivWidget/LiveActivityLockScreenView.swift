@@ -1,6 +1,8 @@
 import SwiftUI
 import ActivityKit
+import WidgetKit
 
+@available(iOS 16.1, *)
 struct LiveActivityLockScreenView: View {
     let context: ActivityViewContext<PowerOutageAttributes>
     

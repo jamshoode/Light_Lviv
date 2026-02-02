@@ -3,6 +3,7 @@ import SwiftUI
 struct ScheduleDetailView: View {
     let group: ScheduleGroup
     @State private var isSubscribed = false
+    @State private var isWidgetGroup = false
     @State private var displayedName: String?
     @State private var selectedDateKey: String = ""
     
@@ -133,21 +134,42 @@ struct ScheduleDetailView: View {
                             .foregroundStyle(.gray)
                     }
                     Spacer()
-                    Button(action: {
-                        isSubscribed.toggle()
-                        if isSubscribed {
-                            NotificationManager.shared.subscribe(group: group)
-                        } else {
-                            NotificationManager.shared.unsubscribe(group: group)
+                    HStack(spacing: 12) {
+                        Button(action: {
+                            isSubscribed.toggle()
+                            if isSubscribed {
+                                NotificationManager.shared.subscribe(group: group)
+                            } else {
+                                NotificationManager.shared.unsubscribe(group: group)
+                            }
+                        }) {
+                            Image(systemName: isSubscribed ? "bell.fill" : "bell")
+                                .font(.title2)
+                                .foregroundStyle(isSubscribed ? .yellow : .gray)
+                                .padding()
+                                .background(Color(white: 0.1))
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color(white: 0.2), lineWidth: 1))
                         }
-                    }) {
-                        Image(systemName: isSubscribed ? "bell.fill" : "bell")
-                            .font(.title2)
-                            .foregroundStyle(isSubscribed ? .yellow : .gray)
-                            .padding()
-                            .background(Color(white: 0.1))
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color(white: 0.2), lineWidth: 1))
+                        
+                        Button(action: {
+                            if isWidgetGroup {
+                                SharedDataManager.shared.saveSelectedGroupId("")
+                                isWidgetGroup = false
+                            } else {
+                                SharedDataManager.shared.saveSelectedGroupId(group.id)
+                                isWidgetGroup = true
+                            }
+                            SharedDataManager.shared.reloadWidgetTimelines()
+                        }) {
+                            Image(systemName: isWidgetGroup ? "square.grid.2x2.fill" : "square.grid.2x2")
+                                .font(.title3)
+                                .foregroundStyle(isWidgetGroup ? .green : .gray)
+                                .padding()
+                                .background(Color(white: 0.1))
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color(white: 0.2), lineWidth: 1))
+                        }
                     }
                 }
                 
@@ -202,6 +224,7 @@ struct ScheduleDetailView: View {
         .onAppear {
             displayedName = NotificationManager.shared.getNickname(for: group) ?? group.customName
             isSubscribed = NotificationManager.shared.isSubscribed(group: group)
+            isWidgetGroup = SharedDataManager.shared.isWidgetGroup(group.id)
             if selectedDateKey.isEmpty {
                  selectedDateKey = todayKey
             }

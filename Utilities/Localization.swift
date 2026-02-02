@@ -62,6 +62,18 @@ struct Localization {
         case "widgetTomorrow": return isUA ? "ЗАВТРА" : "TOMORROW"
         case "widgetPowerStatus": return isUA ? "Статус живлення" : "Power Status"
         case "widgetDescription": return isUA ? "Відстежуйте вимкнення для обраної групи" : "Track power outages for your selected group"
+        case "widgetStatusOn": return isUA ? "УВІМК" : "ON"
+        case "widgetStatusOff": return isUA ? "ВИМК" : "OFF"
+        case "widgetPowerOnLong": return isUA ? "Світло Є" : "Power ON"
+        case "widgetPowerOffLong": return isUA ? "Світла НІЦ" : "Power OFF"
+        case "widgetNoOutagesScheduled": return isUA ? "Вимкнень немає" : "No outages scheduled"
+        case "widgetMore": return isUA ? "ще %@" : "+%@ more"
+        case "widgetJustNow": return isUA ? "щойно" : "just now"
+        case "widgetMinutesAgo": return isUA ? "%@ хв тому" : "%@m ago"
+        case "widgetHoursAgo": return isUA ? "%@ год тому" : "%@h ago"
+        case "widgetPowerIsOn": return isUA ? "Світло є" : "Power is ON"
+        case "widgetPowerIsOff": return isUA ? "Світла немає" : "Power is OFF"
+        case "widgetMin": return isUA ? "хв" : "min"
         default: return key
         }
     }

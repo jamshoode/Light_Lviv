@@ -33,22 +33,31 @@ struct NotificationsTabView: View {
             }
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
-            .toolbar {
-                ToolbarItemGroup(placement: .principal) {
+            .safeAreaBar(edge: .top) {
+                HStack {
                     Text(Localization.get("notifTitle"))
-                        .font(.system(size: 28))
+                        .font(.system(size: 38))
                         .bold()
-                }
-                ToolbarItemGroup(placement: .topBarTrailing) {
+                    Spacer()
                     Button(action: {
                         notifications.clearHistory()
                     }) {
-                        Image(systemName: "trash")
+                        ZStack {
+                            Circle()
+                                .fill(Color(red: 0.1, green: 0.1, blue: 0.1))
+                                .frame(width: 50, height: 50)
+                            Image(systemName: "trash")
+                                .foregroundStyle(.white)
+                        }
                     }
                     .glassEffect()
                 }
+                .frame(
+                    maxWidth: .infinity,
+                    alignment: .topLeading
+                )
+                .padding()
             }
-
         }
         .preferredColorScheme(.dark)
     }

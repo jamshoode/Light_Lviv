@@ -1,28 +1,6 @@
 import Foundation
 import WidgetKit
 
-enum PowerStatus: String, Codable {
-    case on
-    case off
-}
-
-struct WidgetPowerData: Codable {
-    let status: PowerStatus
-    let nextEventDate: Date?
-    let groupName: String
-    let groupId: String
-    let todaySchedules: [ScheduleEntry]
-    let tomorrowSchedules: [ScheduleEntry]
-    let lastUpdated: Date
-}
-
-struct ScheduleEntry: Codable, Identifiable {
-    let id = UUID()
-    let startTime: String
-    let endTime: String
-    let isPowerOn: Bool
-}
-
 class SharedDataManager {
     static let shared = SharedDataManager()
     private let defaults = UserDefaults(suiteName: "group.com.shoode.Light-Lviv")
@@ -63,5 +41,19 @@ class SharedDataManager {
     
     func reloadWidgetTimelines() {
         WidgetCenter.shared.reloadTimelines(ofKind: "Light_LvivWidget")
+    }
+    
+    func getWidgetGroupId(subscribedGroups: [String]) -> String? {
+        if let selectedId = loadSelectedGroupId() {
+            return selectedId
+        }
+        return subscribedGroups.first
+    }
+    
+    func isWidgetGroup(_ groupId: String) -> Bool {
+        if let selectedId = loadSelectedGroupId() {
+            return selectedId == groupId
+        }
+        return false
     }
 }

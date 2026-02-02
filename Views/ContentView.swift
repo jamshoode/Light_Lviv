@@ -148,20 +148,31 @@ struct ContentView: View {
                 await viewModel.fetchSchedule()
             }
         }
-        //.navigationTitle(Localization.get("appName"))
-        .toolbar {
-            ToolbarItemGroup(placement: .principal) {
-                VStack {
-                    HStack(spacing: 6) {
-                        Image("App icon")
-                            .foregroundStyle(.yellow)
-                        Text(Localization.get("appName"))
-                            .bold()
-
-                    }
-                    .font(.title)
-                }
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .safeAreaBar(edge: .top) {
+            HStack() {
+                //Spacer()
+                Image("App icon")
+                    .foregroundStyle(.yellow)
+                Text(Localization.get("appName"))
+                    .font(.system(size: 38))
+                    .bold()
+                //Spacer()
+                //Spacer()
+                //Spacer()
+                //Spacer()
+                //Spacer()
+                //Spacer()
+                //Spacer()
+                //Spacer()
             }
+            .font(.title)
+            .frame(
+                maxWidth: .infinity,
+                alignment: .topLeading
+            )
+            .padding()
         }
     }
 }

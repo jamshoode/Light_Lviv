@@ -1,8 +1,14 @@
 import SwiftUI
 import ActivityKit
+import WidgetKit
 
+@available(iOS 16.1, *)
 struct LiveActivityCompactView: View {
     let context: ActivityViewContext<PowerOutageAttributes>
+    
+    private var eventType: EventType {
+        context.attributes.eventType
+    }
     
     var body: some View {
         HStack(spacing: 8) {
