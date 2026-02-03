@@ -56,6 +56,7 @@
 		F5CBA4BC2F30E57A00645D59 /* ActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CBA4BB2F30E57A00645D59 /* ActivityKit.framework */; };
 		F5CBA4BE2F30E57F00645D59 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CBA4BD2F30E57F00645D59 /* WidgetKit.framework */; };
 		F5CBA4C02F30E5A000645D59 /* Light_LvivWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F5CBA38A2F30D8FD00645D59 /* Light_LvivWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F5CBA5022F30E5A100645D59 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CBA5012F30E5A100645D59 /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		F5CBA4B82F30E0BE00645D59 /* LiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityAttributes.swift; sourceTree = "<group>"; };
 		F5CBA4BB2F30E57A00645D59 /* ActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActivityKit.framework; path = System/Library/Frameworks/ActivityKit.framework; sourceTree = SDKROOT; };
 		F5CBA4BD2F30E57F00645D59 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F5CBA5012F30E5A100645D59 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,11 +274,12 @@
 				F5CBA4242F30DA7900645D59 /* PowerOffScraper.swift */,
 				F5CBA4252F30DA7900645D59 /* ScheduleParser.swift */,
 				F5CBA4262F30DA7900645D59 /* ScheduleSearchService.swift */,
-				F5CBA4272F30DA7900645D59 /* SharedDataManager.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
+		F5CBA4272F30DA7900645D59 /* SharedDataManager.swift */,
+		F5CBA5012F30E5A100645D59 /* UserDefaultsManager.swift */,
+		);
+		path = Services;
+		sourceTree = "<group>";
+	};
 		F5CBA42B2F30DA7900645D59 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +564,7 @@
 				F5CBA4992F30DA7900645D59 /* PowerOffScraper.swift in Sources */,
 				F5CBA49A2F30DA7900645D59 /* ScheduleSearchService.swift in Sources */,
 				F5CBA49B2F30DA7900645D59 /* GroupCardView.swift in Sources */,
+				F5CBA5022F30E5A100645D59 /* UserDefaultsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

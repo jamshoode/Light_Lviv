@@ -124,7 +124,7 @@ class PowerOffScraper: NSObject, WKNavigationDelegate {
                     // Or just look for the first line usually?
                     // Let's search in all lines.
                     var timestamp: String?
-                    let timestampPattern = "Інформація станом на (\\d{2}:\\d{2} \\d{2}\.\\d{2}\.\\d{4})"
+                    let timestampPattern = #"Інформація станом на (\d{2}:\d{2} \d{2}\.\d{2}\.\d{4})"#
                     let tsRegex = try? NSRegularExpression(pattern: timestampPattern, options: [])
 
                     for line in lines {
@@ -154,8 +154,8 @@ class PowerOffScraper: NSObject, WKNavigationDelegate {
         var tempMap: [String: [String: String]] = [:] // "1.1" -> ["26.01.2026": "00-04..."]
 
         var currentDate: String? = nil
-        let datePattern = "на (\\d{2}\.\\d{2}\.\\d{4})"
-        let groupPattern = "^Група\\s+(\\d\.\\d)"
+        let datePattern = #"на (\d{2}\.\d{2}\.\d{4})"#
+        let groupPattern = #"^Група\s+(\d\.\d)"#
 
         for line in lines {
             // Check for date line
@@ -181,7 +181,7 @@ class PowerOffScraper: NSObject, WKNavigationDelegate {
                 if let match = regex?.firstMatch(in: line, options: [], range: NSRange(location: 0, length: nsString.length)) {
                     groupId = nsString.substring(with: match.range(at: 1))
                 }
-            } else if let range = line.range(of: "\\b(\\d\.\\d)\\b", options: .regularExpression) {
+            } else if let range = line.range(of: #"\b(\d\.\d)\b"#, options: .regularExpression) {
                 groupId = String(line[range])
             }
 
