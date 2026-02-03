@@ -31,26 +31,33 @@ class ScheduleViewModel {
     }
     
     func saveSelection() {
-        let array = Array(savedGroupIDs)
-        UserDefaults.standard.set(array, forKey: saveKey)
+        Task {
+            await UserDefaultsManager.shared.setStringSet(savedGroupIDs, for: .savedGroupIDs)
+        }
     }
-    
+
     private func saveGroups() {
-        if let data = try? JSONEncoder().encode(groups) {
-            UserDefaults.standard.set(data, forKey: groupsCacheKey)
+        Task {
+            if let data = try? JSONEncoder().encode(groups) {
+                await UserDefaultsManager.shared.setData(data, for: .cachedGroups)
+            }
         }
     }
-    
+
     func loadSelection() {
-        if let array = UserDefaults.standard.array(forKey: saveKey) as? [String] {
-            savedGroupIDs = Set(array)
+        Task {
+            savedGroupIDs = await UserDefaultsManager.shared.getStringSet(for: .savedGroupIDs)
         }
     }
-    
+
     private func loadCachedGroups() {
-        if let data = UserDefaults.standard.data(forKey: groupsCacheKey),
-           let cached = try? JSONDecoder().decode([ScheduleGroup].self, from: data) {
-            self.groups = cached
+        Task {
+            if let data = await UserDefaultsManager.shared.getData(for: .cachedGroups),
+               let cached = try? JSONDecoder().decode([ScheduleGroup].self, from: data) {
+                await MainActor.run {
+                    self.groups = cached
+                }
+            }
         }
     }
     

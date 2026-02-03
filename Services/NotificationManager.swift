@@ -28,33 +28,24 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     private func saveSubscriptions() {
-        let array = Array(subscribedGroups)
-        UserDefaults.standard.set(array, forKey: saveKey)
-        UserDefaults.standard.set(currentSchedules, forKey: scheduleSaveKey)
-        UserDefaults.standard.set(previousSchedules, forKey: previousScheduleSaveKey)
-        UserDefaults.standard.set(Array(unreadChanges), forKey: unreadSaveKey)
-        UserDefaults.standard.set(Array(unreadNewDayChanges), forKey: unreadNewDaySaveKey)
-        UserDefaults.standard.set(groupNicknames, forKey: nicknamesSaveKey)
+        Task {
+            await UserDefaultsManager.shared.setStringSet(subscribedGroups, for: .subscribedGroupIDs)
+            await UserDefaultsManager.shared.setDictionary(currentSchedules, for: .lastKnownSchedules)
+            await UserDefaultsManager.shared.setDictionary(previousSchedules, for: .previousSchedules)
+            await UserDefaultsManager.shared.setStringSet(unreadChanges, for: .unreadChangesIDs)
+            await UserDefaultsManager.shared.setStringSet(unreadNewDayChanges, for: .unreadNewDayIDs)
+            await UserDefaultsManager.shared.setStringDictionary(groupNicknames, for: .groupNicknames)
+        }
     }
-    
+
     private func loadSubscriptions() {
-        if let array = UserDefaults.standard.array(forKey: saveKey) as? [String] {
-            subscribedGroups = Set(array)
-        }
-        if let dict = UserDefaults.standard.dictionary(forKey: scheduleSaveKey) as? [String: [String: String]] {
-            currentSchedules = dict
-        }
-        if let dict = UserDefaults.standard.dictionary(forKey: previousScheduleSaveKey) as? [String: [String: String]] {
-            previousSchedules = dict
-        }
-        if let array = UserDefaults.standard.array(forKey: unreadSaveKey) as? [String] {
-            unreadChanges = Set(array)
-        }
-        if let array = UserDefaults.standard.array(forKey: unreadNewDaySaveKey) as? [String] {
-            unreadNewDayChanges = Set(array)
-        }
-        if let dict = UserDefaults.standard.dictionary(forKey: nicknamesSaveKey) as? [String: String] {
-            groupNicknames = dict
+        Task {
+            subscribedGroups = await UserDefaultsManager.shared.getStringSet(for: .subscribedGroupIDs)
+            currentSchedules = await UserDefaultsManager.shared.getDictionary(for: .lastKnownSchedules)
+            previousSchedules = await UserDefaultsManager.shared.getDictionary(for: .previousSchedules)
+            unreadChanges = await UserDefaultsManager.shared.getStringSet(for: .unreadChangesIDs)
+            unreadNewDayChanges = await UserDefaultsManager.shared.getStringSet(for: .unreadNewDayIDs)
+            groupNicknames = await UserDefaultsManager.shared.getStringDictionary(for: .groupNicknames)
         }
     }
     
