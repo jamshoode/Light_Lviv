@@ -48,6 +48,7 @@
 		F5CBA4AC2F30DEB100645D59 /* SharedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CBA4272F30DA7900645D59 /* SharedDataManager.swift */; };
 		F5CBA4AE2F30DF0B00645D59 /* WidgetTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CBA4AD2F30DF0B00645D59 /* WidgetTypes.swift */; };
 		F5CBA4AF2F30DF0B00645D59 /* WidgetTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CBA4AD2F30DF0B00645D59 /* WidgetTypes.swift */; };
+		F5CBA4B02F30E5A100645D59 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CBA42A2F30DA7900645D59 /* Localization.swift */; };
 		F5CBA4B32F30E04200645D59 /* LiveActivityCompactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CBA4B02F30E04200645D59 /* LiveActivityCompactView.swift */; };
 		F5CBA4B42F30E04200645D59 /* LiveActivityExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CBA4B12F30E04200645D59 /* LiveActivityExpandedView.swift */; };
 		F5CBA4B52F30E04200645D59 /* LiveActivityLockScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CBA4B22F30E04200645D59 /* LiveActivityLockScreenView.swift */; };
@@ -515,6 +516,7 @@
 				F5CBA4B52F30E04200645D59 /* LiveActivityLockScreenView.swift in Sources */,
 				F5CBA4A22F30DB0C00645D59 /* MediumWidgetView.swift in Sources */,
 				F5CBA4AE2F30DF0B00645D59 /* WidgetTypes.swift in Sources */,
+				F5CBA4B02F30E5A100645D59 /* Localization.swift in Sources */,
 				F5CBA4A32F30DB0C00645D59 /* PowerStatusProvider.swift in Sources */,
 				F5CBA4A42F30DB0C00645D59 /* SmallWidgetView.swift in Sources */,
 				F5CBA4B92F30E0BE00645D59 /* LiveActivityAttributes.swift in Sources */,

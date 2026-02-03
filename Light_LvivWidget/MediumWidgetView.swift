@@ -14,12 +14,12 @@ struct MediumWidgetView: View {
         let diff = Date().timeIntervalSince(entry.lastUpdated)
         let minutes = Int(diff / 60)
         if minutes < 1 {
-            return "Updated: just now"
+            return String(format: Localization.get("widgetUpdated"), Localization.get("widgetJustNow"))
         } else if minutes < 60 {
-            return "Updated: \(minutes)m ago"
+            return String(format: Localization.get("widgetUpdated"), String(format: Localization.get("widgetMinutesAgo"), "\(minutes)"))
         } else {
             let hours = minutes / 60
-            return "Updated: \(hours)h ago"
+            return String(format: Localization.get("widgetUpdated"), String(format: Localization.get("widgetHoursAgo"), "\(hours)"))
         }
     }
     
@@ -56,7 +56,7 @@ struct MediumWidgetView: View {
                         .font(.system(size: 24))
                         .foregroundStyle(entry.isPowerOn ? Color(red: 0.204, green: 0.78, blue: 0.349) : Color(red: 1, green: 0.231, blue: 0.188))
                     
-                    Text(entry.isPowerOn ? "ON" : "OFF")
+                    Text(entry.isPowerOn ? Localization.get("widgetStatusOn") : Localization.get("widgetStatusOff"))
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundStyle(entry.isPowerOn ? Color(red: 0.204, green: 0.78, blue: 0.349) : Color(red: 1, green: 0.231, blue: 0.188))
@@ -68,7 +68,8 @@ struct MediumWidgetView: View {
                     .lineLimit(1)
                 
                 if let minutes = minutesRemaining, minutes > 0 {
-                    Text(entry.isPowerOn ? "OFF in \(minutes)m" : "ON in \(minutes)m")
+                    let key = entry.isPowerOn ? "widgetPowerOffIn" : "widgetPowerOnIn"
+                    Text(String(format: Localization.get(key), "\(minutes)"))
                         .font(.subheadline)
                         .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))
                 }
@@ -85,14 +86,14 @@ struct MediumWidgetView: View {
                 .background(Color(red: 0.2, green: 0.2, blue: 0.2))
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("Today")
+                Text(Localization.get("today"))
                     .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))
                     .padding(.bottom, 2)
                 
                 if entry.todaySchedules.isEmpty {
-                    Text("No outages")
+                    Text(Localization.get("widgetNoOutages"))
                         .font(.caption)
                         .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))
                         .italic()
@@ -111,7 +112,7 @@ struct MediumWidgetView: View {
                     }
                     
                     if entry.todaySchedules.count > 4 {
-                        Text("+\(entry.todaySchedules.count - 4) more")
+                        Text(String(format: Localization.get("widgetMore"), "\(entry.todaySchedules.count - 4)"))
                             .font(.caption2)
                             .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))
                     }

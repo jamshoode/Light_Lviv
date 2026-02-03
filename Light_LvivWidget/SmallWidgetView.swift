@@ -42,12 +42,13 @@ struct SmallWidgetView: View {
                 .foregroundStyle(entry.isPowerOn ? Color(red: 0.204, green: 0.78, blue: 0.349) : Color(red: 1, green: 0.231, blue: 0.188))
             
             if let minutes = minutesRemaining, minutes > 0 {
-                Text(entry.isPowerOn ? "/off_in \(minutes)m/" : "/on_in \(minutes)m/")
+                let key = entry.isPowerOn ? "widgetPowerOffIn" : "widgetPowerOnIn"
+                Text(String(format: Localization.get(key), "\(minutes)"))
                     .font(.caption)
                     .fontWeight(.medium)
                     .foregroundStyle(.white)
             } else {
-                Text(entry.isPowerOn ? "/on/" : "/off/")
+                Text(entry.isPowerOn ? Localization.get("widgetStatusOn") : Localization.get("widgetStatusOff"))
                     .font(.caption)
                     .fontWeight(.medium)
                     .foregroundStyle(Color(red: 0.553, green: 0.553, blue: 0.576))

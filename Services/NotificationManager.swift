@@ -251,6 +251,9 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
                     }
                     removeNotifications(for: group)
                     scheduleNotifications(for: group)
+                    
+                    // Update widget data when subscribed group's schedule changes
+                    updateWidgetDataIfNeeded(for: group)
                 }
                 
                 currentSchedules[group.id] = newSchedules
